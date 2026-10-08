@@ -1,0 +1,24 @@
+schema_version: '1.0'
+backend: maniskill
+backend_version: 3.0.1
+env_id: PickCube-v1
+robot_id: panda
+obs_mode: rgb
+control_mode: pd_joint_delta_pos
+reward_mode: normalized_dense
+sim_backend: physx_cuda
+render_backend: gpu
+num_envs: 1
+episode_horizon: 50
+control_freq: 20
+sim_freq: 100
+camera: {width: 128, height: 128, shader_pack: minimal}
+camera_ids: [base_camera]
+seed_manifest: null
+split: smoke
+seed: 47000
+reconfiguration_freq: 0
+auto_reset: false
+termination: collection
+chunk_length: 4
+execution_horizon: 2
