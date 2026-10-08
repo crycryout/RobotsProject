@@ -1,0 +1,814 @@
+{
+  "installation": {
+    "command": "uv sync --offline --extra sim --group dev",
+    "cuda_runtime": "12.6",
+    "exit_code": 0,
+    "gymnasium": "1.3.0",
+    "mani_skill": "3.0.1",
+    "python": "3.11.16",
+    "sapien": "3.0.3",
+    "torch": "2.7.1",
+    "upstream": {
+      "commit": "a4a4f9272ad64b1564035874b605ceb687b63ed8",
+      "files": {
+        "mani_skill/agents/robots/panda/panda.py": {
+          "matches": true,
+          "source_sha256": "2a98a2133b49e5a94a83d05019c0ab833ad6767f85ff1bf66265cd9247cb0fda",
+          "wheel_sha256": "2a98a2133b49e5a94a83d05019c0ab833ad6767f85ff1bf66265cd9247cb0fda"
+        },
+        "mani_skill/envs/sapien_env.py": {
+          "matches": true,
+          "source_sha256": "459196c275764eaf53ccba8e154e3207036399e54c8bdd45f9e7d0919970464b",
+          "wheel_sha256": "459196c275764eaf53ccba8e154e3207036399e54c8bdd45f9e7d0919970464b"
+        },
+        "mani_skill/envs/tasks/tabletop/pick_cube.py": {
+          "matches": true,
+          "source_sha256": "6f881f11151bd124a4ec6d1189e86e20b17d366aa1cbcc6e2f751f1f5bb03ed1",
+          "wheel_sha256": "6f881f11151bd124a4ec6d1189e86e20b17d366aa1cbcc6e2f751f1f5bb03ed1"
+        },
+        "mani_skill/envs/tasks/tabletop/push_cube.py": {
+          "matches": true,
+          "source_sha256": "8ae1536c13fae2fe8f5c84be0c60ff40a6acd625e738dfafc056ec333a16e0d8",
+          "wheel_sha256": "8ae1536c13fae2fe8f5c84be0c60ff40a6acd625e738dfafc056ec333a16e0d8"
+        },
+        "mani_skill/vector/wrappers/gymnasium.py": {
+          "matches": true,
+          "source_sha256": "66784e43ea5def67c265a5b716716f3e19d723c05c39640046bce7ec073decca",
+          "wheel_sha256": "66784e43ea5def67c265a5b716716f3e19d723c05c39640046bce7ec073decca"
+        }
+      },
+      "repository": "https://github.com/mani-skill/ManiSkill",
+      "tag": "v3.0.1"
+    }
+  },
+  "phase": "P0",
+  "preflight": {
+    "compute_processes": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1, 517960, 8136 MiB"
+    },
+    "cpu_count_logical": 96,
+    "cpu_count_physical": 48,
+    "cpu_model": "Intel(R) Xeon(R) Gold 6342 CPU @ 2.80GHz",
+    "cuda_toolkit": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Aug_20_01:58:59_PM_PDT_2025\nCuda compilation tools, release 13.0, V13.0.88\nBuild cuda_13.0.r13.0/compiler.36424714_0"
+    },
+    "cuda_visible_devices": "GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1",
+    "disk_free_bytes": 665295261696,
+    "disk_total_bytes": 1888432484352,
+    "gpu_topology": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "GPU 0: NVIDIA H800 PCIe (UUID: GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1)\nGPU 1: NVIDIA H800 PCIe (UUID: GPU-7562256d-7983-5ee7-6396-4cf2d529616a)\n  MIG 2g.20gb     Device  0: (UUID: MIG-e6fc2d29-df53-531c-bfda-84767274c8a2)\n  MIG 2g.20gb     Device  1: (UUID: MIG-0ac25523-86e7-5277-bfb8-0d8f3b6175d7)\n  MIG 2g.20gb     Device  2: (UUID: MIG-c3be06c6-cf04-5d8b-85a3-617a77291100)"
+    },
+    "machine": "x86_64",
+    "os": "Linux-5.15.0-131-generic-x86_64-with-glibc2.35",
+    "physical_gpus": {
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "0, NVIDIA H800 PCIe, GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1, 81559 MiB, 8145 MiB, 38 %, 580.173.02, Disabled\n1, NVIDIA H800 PCIe, GPU-7562256d-7983-5ee7-6396-4cf2d529616a, 81559 MiB, 87 MiB, [N/A], 580.173.02, Enabled"
+    },
+    "provenance": {
+      "checkpoint_revision": null,
+      "checkpoint_sha256": null,
+      "code_commit": "91f2814db234b7149d22e3d2505bc517d6a6faa9",
+      "code_dirty": true,
+      "cuda_visible_devices": "GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1",
+      "dependency_lock_sha256": "c166ce83370aa0a315f52518a4e0df3f4bc48078e5f8fc042b1327b1af20d567",
+      "preprocessing_version": "sensor-native-rgb-u8-v1",
+      "versions": {
+        "PyYAML": "6.0.3",
+        "gymnasium": "1.3.0",
+        "h5py": "3.16.0",
+        "mani_skill": "3.0.1",
+        "numpy": "2.4.6",
+        "psutil": "7.2.2",
+        "robots-project": "0.1.0",
+        "sapien": "3.0.3",
+        "torch": "2.7.1"
+      }
+    },
+    "python": "3.11.16 (main, Sep  1 2026, 14:18:37) [Clang 22.1.3 ]",
+    "ram_available_bytes": 253798924288,
+    "ram_total_bytes": 269863182336,
+    "route": {
+      "maniskill_rgb": "UNTESTED",
+      "maniskill_state": "UNTESTED",
+      "robolab": "BLOCKED_HARDWARE"
+    },
+    "schema_version": "1.0",
+    "time_unix": 1791472956.4380183,
+    "torch": {
+      "cuda_available": true,
+      "cuda_runtime": "12.6",
+      "visible_devices": [
+        {
+          "name": "NVIDIA H800 PCIe",
+          "process_local_index": 0,
+          "total_memory": 85017493504,
+          "uuid": "92d5af20-d2aa-3a17-8bf5-866a22db81f1"
+        }
+      ]
+    },
+    "vulkan_icd_files": [
+      "/usr/share/vulkan/icd.d/nvidia_icd.json"
+    ]
+  },
+  "smoke": [
+    {
+      "action_max": [
+        0.9692584872245789,
+        0.885516345500946,
+        0.58529132604599,
+        0.8907170295715332,
+        0.7923386693000793,
+        0.9299224615097046,
+        0.8371410965919495,
+        0.8942317366600037
+      ],
+      "action_min": [
+        -0.9253177642822266,
+        -0.9539589285850525,
+        -0.8427098393440247,
+        -0.9476798176765442,
+        -0.9464766383171082,
+        -0.4982822835445404,
+        -0.427028089761734,
+        -0.8913912177085876
+      ],
+      "capability": "STATE_OK",
+      "command": "python -m robots_project.cli.smoke --config configs/envs/pushcube_state.yaml --num-envs 1 --policy random --output outputs/p0/pushcube-state-1",
+      "elapsed_seconds": 8.573414649814367,
+      "episode_ends": 0,
+      "exit_code": 0,
+      "gripper_displacement_m": 0.026619169861078262,
+      "max_qpos_displacement_rad": 0.09414315223693848,
+      "observations": {
+        "agent/qpos": {
+          "dtype": "float32",
+          "max": 2.370380163192749,
+          "min": -1.9765626192092896,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "agent/qvel": {
+          "dtype": "float32",
+          "max": 0.0,
+          "min": 0.0,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "extra/goal_pos": {
+          "dtype": "float32",
+          "max": 0.19691899418830872,
+          "min": 0.0010000000474974513,
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "extra/obj_pose": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.003081001341342926,
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "extra/tcp_pose": {
+          "dtype": "float32",
+          "max": 0.9991129040718079,
+          "min": -0.007701097056269646,
+          "shape": [
+            1,
+            7
+          ]
+        }
+      },
+      "report_path": "outputs/p0/pushcube-state-1/report.json",
+      "specs": {
+        "action_spec": {
+          "dimension": 8,
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "id": "maniskill:901eb03c7c85c0f960a3",
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "semantics": {
+            "control_freq_hz": 20,
+            "control_mode": "pd_joint_delta_pos",
+            "controller_config": {
+              "arm": "PDJointPosControllerConfig(joint_names=['panda_joint1', 'panda_joint2', 'panda_joint3', 'panda_joint4', 'panda_joint5', 'panda_joint6', 'panda_joint7'], lower=-0.1, upper=0.1, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=True, use_target=False, interpolate=False, normalize_action=True, drive_mode='force')",
+              "gripper": "PDJointPosMimicControllerConfig(joint_names=['panda_finger_joint1', 'panda_finger_joint2'], lower=-0.01, upper=0.04, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=False, use_target=False, interpolate=False, normalize_action=True, drive_mode='force', mimic={'panda_finger_joint2': {'joint': 'panda_finger_joint1'}})"
+            },
+            "droid_compatible": false,
+            "native_controller": true,
+            "robot_id": "panda"
+          }
+        },
+        "backend": "maniskill",
+        "backend_version": "3.0.1",
+        "camera_ids": [
+          "base_camera"
+        ],
+        "dt_sim": 0.05,
+        "num_envs": 1,
+        "obs_mode": "state_dict",
+        "preprocessing_version": "sensor-native-rgb-u8-v1",
+        "privileged_observation": true,
+        "robot_id": "panda",
+        "simulation_backend": "physx_cuda",
+        "synthetic": false,
+        "task_id": "PushCube-v1"
+      },
+      "transitions": 10
+    },
+    {
+      "action_max": [
+        0.9692584872245789,
+        0.9737042188644409,
+        0.8988481760025024,
+        0.9766721725463867,
+        0.9295986890792847,
+        0.9299224615097046,
+        0.962348997592926,
+        0.8980085253715515
+      ],
+      "action_min": [
+        -0.9473497867584229,
+        -0.9539589285850525,
+        -0.960602343082428,
+        -0.9891358017921448,
+        -0.9652382731437683,
+        -0.9781388640403748,
+        -0.9781349301338196,
+        -0.988094687461853
+      ],
+      "capability": "STATE_OK",
+      "command": "python -m robots_project.cli.smoke --config configs/envs/pushcube_state.yaml --num-envs 4 --policy random --output outputs/p0/pushcube-state-4",
+      "elapsed_seconds": 5.040863484144211,
+      "episode_ends": 0,
+      "exit_code": 0,
+      "gripper_displacement_m": 0.02869294583797455,
+      "max_qpos_displacement_rad": 0.1412820816040039,
+      "observations": {
+        "agent/qpos": {
+          "dtype": "float32",
+          "max": 2.390368938446045,
+          "min": -1.9983614683151245,
+          "shape": [
+            4,
+            9
+          ]
+        },
+        "agent/qvel": {
+          "dtype": "float32",
+          "max": 0.0,
+          "min": 0.0,
+          "shape": [
+            4,
+            9
+          ]
+        },
+        "extra/goal_pos": {
+          "dtype": "float32",
+          "max": 0.2288346290588379,
+          "min": -0.0937342643737793,
+          "shape": [
+            4,
+            3
+          ]
+        },
+        "extra/obj_pose": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.0937342643737793,
+          "shape": [
+            4,
+            7
+          ]
+        },
+        "extra/tcp_pose": {
+          "dtype": "float32",
+          "max": 0.9996695518493652,
+          "min": -0.030338631942868233,
+          "shape": [
+            4,
+            7
+          ]
+        }
+      },
+      "report_path": "outputs/p0/pushcube-state-4/report.json",
+      "specs": {
+        "action_spec": {
+          "dimension": 8,
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "id": "maniskill:901eb03c7c85c0f960a3",
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "semantics": {
+            "control_freq_hz": 20,
+            "control_mode": "pd_joint_delta_pos",
+            "controller_config": {
+              "arm": "PDJointPosControllerConfig(joint_names=['panda_joint1', 'panda_joint2', 'panda_joint3', 'panda_joint4', 'panda_joint5', 'panda_joint6', 'panda_joint7'], lower=-0.1, upper=0.1, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=True, use_target=False, interpolate=False, normalize_action=True, drive_mode='force')",
+              "gripper": "PDJointPosMimicControllerConfig(joint_names=['panda_finger_joint1', 'panda_finger_joint2'], lower=-0.01, upper=0.04, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=False, use_target=False, interpolate=False, normalize_action=True, drive_mode='force', mimic={'panda_finger_joint2': {'joint': 'panda_finger_joint1'}})"
+            },
+            "droid_compatible": false,
+            "native_controller": true,
+            "robot_id": "panda"
+          }
+        },
+        "backend": "maniskill",
+        "backend_version": "3.0.1",
+        "camera_ids": [
+          "base_camera"
+        ],
+        "dt_sim": 0.05,
+        "num_envs": 4,
+        "obs_mode": "state_dict",
+        "preprocessing_version": "sensor-native-rgb-u8-v1",
+        "privileged_observation": true,
+        "robot_id": "panda",
+        "simulation_backend": "physx_cuda",
+        "synthetic": false,
+        "task_id": "PushCube-v1"
+      },
+      "transitions": 40
+    },
+    {
+      "action_max": [
+        0.6767627596855164,
+        0.6807900667190552,
+        0.5106311440467834,
+        0.780893087387085,
+        0.7223923802375793,
+        0.9374940395355225,
+        0.8930567502975464,
+        0.9557642340660095
+      ],
+      "action_min": [
+        -0.9819210767745972,
+        -0.4587159752845764,
+        -0.8198904991149902,
+        -0.6877328753471375,
+        -0.930860161781311,
+        -0.965650737285614,
+        -0.9525968432426453,
+        -0.9957691431045532
+      ],
+      "capability": "RGB_OK",
+      "command": "python -m robots_project.cli.smoke --config configs/envs/pushcube_rgb.yaml --num-envs 1 --policy random --output outputs/p0/pushcube-rgb-1",
+      "elapsed_seconds": 5.570237338542938,
+      "episode_ends": 0,
+      "exit_code": 0,
+      "gripper_displacement_m": 0.02770647592842579,
+      "max_qpos_displacement_rad": 0.10695111751556396,
+      "observations": {
+        "agent/qpos": {
+          "dtype": "float32",
+          "max": 2.350127696990967,
+          "min": -1.9947465658187866,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "agent/qvel": {
+          "dtype": "float32",
+          "max": 0.0,
+          "min": 0.0,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "extra/tcp_pose": {
+          "dtype": "float32",
+          "max": 0.9998034238815308,
+          "min": -0.013360579498112202,
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "sensor_data/base_camera/rgb": {
+          "dtype": "uint8",
+          "max": 255.0,
+          "min": 36.0,
+          "shape": [
+            1,
+            128,
+            128,
+            3
+          ]
+        },
+        "sensor_param/base_camera/cam2world_gl": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.7808687686920166,
+          "shape": [
+            1,
+            4,
+            4
+          ]
+        },
+        "sensor_param/base_camera/extrinsic_cv": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.7808687686920166,
+          "shape": [
+            1,
+            3,
+            4
+          ]
+        },
+        "sensor_param/base_camera/intrinsic_cv": {
+          "dtype": "float32",
+          "max": 64.0,
+          "min": 0.0,
+          "shape": [
+            1,
+            3,
+            3
+          ]
+        }
+      },
+      "report_path": "outputs/p0/pushcube-rgb-1/report.json",
+      "specs": {
+        "action_spec": {
+          "dimension": 8,
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "id": "maniskill:901eb03c7c85c0f960a3",
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "semantics": {
+            "control_freq_hz": 20,
+            "control_mode": "pd_joint_delta_pos",
+            "controller_config": {
+              "arm": "PDJointPosControllerConfig(joint_names=['panda_joint1', 'panda_joint2', 'panda_joint3', 'panda_joint4', 'panda_joint5', 'panda_joint6', 'panda_joint7'], lower=-0.1, upper=0.1, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=True, use_target=False, interpolate=False, normalize_action=True, drive_mode='force')",
+              "gripper": "PDJointPosMimicControllerConfig(joint_names=['panda_finger_joint1', 'panda_finger_joint2'], lower=-0.01, upper=0.04, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=False, use_target=False, interpolate=False, normalize_action=True, drive_mode='force', mimic={'panda_finger_joint2': {'joint': 'panda_finger_joint1'}})"
+            },
+            "droid_compatible": false,
+            "native_controller": true,
+            "robot_id": "panda"
+          }
+        },
+        "backend": "maniskill",
+        "backend_version": "3.0.1",
+        "camera_ids": [
+          "base_camera"
+        ],
+        "dt_sim": 0.05,
+        "num_envs": 1,
+        "obs_mode": "rgb",
+        "preprocessing_version": "sensor-native-rgb-u8-v1",
+        "privileged_observation": false,
+        "robot_id": "panda",
+        "simulation_backend": "physx_cuda",
+        "synthetic": false,
+        "task_id": "PushCube-v1"
+      },
+      "transitions": 10
+    },
+    {
+      "action_max": [
+        0.9388762712478638,
+        0.9888754487037659,
+        0.9109253287315369,
+        0.908271849155426,
+        0.9292089939117432,
+        0.9937190413475037,
+        0.8930567502975464,
+        0.9557642340660095
+      ],
+      "action_min": [
+        -0.9819210767745972,
+        -0.7531609535217285,
+        -0.8198904991149902,
+        -0.9933005571365356,
+        -0.9831582903862,
+        -0.965650737285614,
+        -0.9951763153076172,
+        -0.9957691431045532
+      ],
+      "capability": "RGB_OK",
+      "command": "python -m robots_project.cli.smoke --config configs/envs/pushcube_rgb.yaml --num-envs 4 --policy random --output outputs/p0/pushcube-rgb-4",
+      "elapsed_seconds": 5.554761413950473,
+      "episode_ends": 0,
+      "exit_code": 0,
+      "gripper_displacement_m": 0.03785105049610138,
+      "max_qpos_displacement_rad": 0.15562929213047028,
+      "observations": {
+        "agent/qpos": {
+          "dtype": "float32",
+          "max": 2.359877824783325,
+          "min": -1.9947465658187866,
+          "shape": [
+            4,
+            9
+          ]
+        },
+        "agent/qvel": {
+          "dtype": "float32",
+          "max": 0.0,
+          "min": 0.0,
+          "shape": [
+            4,
+            9
+          ]
+        },
+        "extra/tcp_pose": {
+          "dtype": "float32",
+          "max": 0.9998661875724792,
+          "min": -0.030318936333060265,
+          "shape": [
+            4,
+            7
+          ]
+        },
+        "sensor_data/base_camera/rgb": {
+          "dtype": "uint8",
+          "max": 255.0,
+          "min": 36.0,
+          "shape": [
+            4,
+            128,
+            128,
+            3
+          ]
+        },
+        "sensor_param/base_camera/cam2world_gl": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.7808687686920166,
+          "shape": [
+            4,
+            4,
+            4
+          ]
+        },
+        "sensor_param/base_camera/extrinsic_cv": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.7808687686920166,
+          "shape": [
+            4,
+            3,
+            4
+          ]
+        },
+        "sensor_param/base_camera/intrinsic_cv": {
+          "dtype": "float32",
+          "max": 64.0,
+          "min": 0.0,
+          "shape": [
+            4,
+            3,
+            3
+          ]
+        }
+      },
+      "report_path": "outputs/p0/pushcube-rgb-4/report.json",
+      "specs": {
+        "action_spec": {
+          "dimension": 8,
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "id": "maniskill:901eb03c7c85c0f960a3",
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "semantics": {
+            "control_freq_hz": 20,
+            "control_mode": "pd_joint_delta_pos",
+            "controller_config": {
+              "arm": "PDJointPosControllerConfig(joint_names=['panda_joint1', 'panda_joint2', 'panda_joint3', 'panda_joint4', 'panda_joint5', 'panda_joint6', 'panda_joint7'], lower=-0.1, upper=0.1, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=True, use_target=False, interpolate=False, normalize_action=True, drive_mode='force')",
+              "gripper": "PDJointPosMimicControllerConfig(joint_names=['panda_finger_joint1', 'panda_finger_joint2'], lower=-0.01, upper=0.04, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=False, use_target=False, interpolate=False, normalize_action=True, drive_mode='force', mimic={'panda_finger_joint2': {'joint': 'panda_finger_joint1'}})"
+            },
+            "droid_compatible": false,
+            "native_controller": true,
+            "robot_id": "panda"
+          }
+        },
+        "backend": "maniskill",
+        "backend_version": "3.0.1",
+        "camera_ids": [
+          "base_camera"
+        ],
+        "dt_sim": 0.05,
+        "num_envs": 4,
+        "obs_mode": "rgb",
+        "preprocessing_version": "sensor-native-rgb-u8-v1",
+        "privileged_observation": false,
+        "robot_id": "panda",
+        "simulation_backend": "physx_cuda",
+        "synthetic": false,
+        "task_id": "PushCube-v1"
+      },
+      "transitions": 40
+    },
+    {
+      "action_max": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999998807907104
+      ],
+      "action_min": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999998807907104
+      ],
+      "capability": "STATE_OK",
+      "command": "python -m robots_project.cli.smoke --config configs/envs/pushcube_state.yaml --num-envs 1 --policy hold --output outputs/p0/hold-state-1",
+      "elapsed_seconds": 5.17698629386723,
+      "episode_ends": 0,
+      "exit_code": 0,
+      "gripper_displacement_m": 0.0,
+      "max_qpos_displacement_rad": 0.0,
+      "observations": {
+        "agent/qpos": {
+          "dtype": "float32",
+          "max": 2.370380163192749,
+          "min": -1.9765626192092896,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "agent/qvel": {
+          "dtype": "float32",
+          "max": 0.0,
+          "min": 0.0,
+          "shape": [
+            1,
+            9
+          ]
+        },
+        "extra/goal_pos": {
+          "dtype": "float32",
+          "max": 0.19691899418830872,
+          "min": 0.0010000000474974513,
+          "shape": [
+            1,
+            3
+          ]
+        },
+        "extra/obj_pose": {
+          "dtype": "float32",
+          "max": 1.0,
+          "min": -0.003081001341342926,
+          "shape": [
+            1,
+            7
+          ]
+        },
+        "extra/tcp_pose": {
+          "dtype": "float32",
+          "max": 0.9991129040718079,
+          "min": -0.007701097056269646,
+          "shape": [
+            1,
+            7
+          ]
+        }
+      },
+      "report_path": "outputs/p0/hold-state-1/report.json",
+      "specs": {
+        "action_spec": {
+          "dimension": 8,
+          "high": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "id": "maniskill:901eb03c7c85c0f960a3",
+          "low": [
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0,
+            -1.0
+          ],
+          "semantics": {
+            "control_freq_hz": 20,
+            "control_mode": "pd_joint_delta_pos",
+            "controller_config": {
+              "arm": "PDJointPosControllerConfig(joint_names=['panda_joint1', 'panda_joint2', 'panda_joint3', 'panda_joint4', 'panda_joint5', 'panda_joint6', 'panda_joint7'], lower=-0.1, upper=0.1, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=True, use_target=False, interpolate=False, normalize_action=True, drive_mode='force')",
+              "gripper": "PDJointPosMimicControllerConfig(joint_names=['panda_finger_joint1', 'panda_finger_joint2'], lower=-0.01, upper=0.04, stiffness=1000.0, damping=100.0, force_limit=100, friction=0.0, use_delta=False, use_target=False, interpolate=False, normalize_action=True, drive_mode='force', mimic={'panda_finger_joint2': {'joint': 'panda_finger_joint1'}})"
+            },
+            "droid_compatible": false,
+            "native_controller": true,
+            "robot_id": "panda"
+          }
+        },
+        "backend": "maniskill",
+        "backend_version": "3.0.1",
+        "camera_ids": [
+          "base_camera"
+        ],
+        "dt_sim": 0.05,
+        "num_envs": 1,
+        "obs_mode": "state_dict",
+        "preprocessing_version": "sensor-native-rgb-u8-v1",
+        "privileged_observation": true,
+        "robot_id": "panda",
+        "simulation_backend": "physx_cuda",
+        "synthetic": false,
+        "task_id": "PushCube-v1"
+      },
+      "transitions": 10
+    }
+  ],
+  "status": "PASSED"
+}

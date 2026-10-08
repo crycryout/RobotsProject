@@ -1,0 +1,66 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "robots-project"
+version = "0.1.0"
+description = "Auditable simulation collection and evaluation for world-action model integration"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==2.4.6",
+  "h5py==3.16.0",
+  "PyYAML==6.0.3",
+  "psutil==7.2.2",
+  "matplotlib==3.11.2",
+  "pillow==12.3.0",
+]
+
+[project.optional-dependencies]
+sim = [
+  "mani_skill==3.0.1",
+  "sapien==3.0.3",
+  "gymnasium==1.3.0",
+  "torch==2.7.1",
+]
+
+[dependency-groups]
+dev = ["pytest==9.0.3", "ruff==0.14.9"]
+
+[tool.uv]
+constraint-dependencies = [
+  "charset-normalizer==3.5.1",
+  "fonttools==4.66.0",
+  "filelock==4.0.4",
+  "gitpython==3.1.62",
+  "hf-xet==1.6.0",
+  "huggingface-hub==2.0.0",
+  "ipython==9.17.1",
+  "imageio==2.37.4",
+  "kiwisolver==1.5.1",
+  "pygments==2.21.0",
+  "markupsafe==3.0.3",
+  "trimesh==5.1.0",
+  "wcwidth==0.9.1",
+]
+
+[[tool.uv.index]]
+name = "tools-mirror"
+url = "https://mirrors.aliyun.com/pypi/simple"
+explicit = true
+
+[tool.uv.sources]
+pytest = { index = "tools-mirror" }
+ruff = { index = "tools-mirror" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/robots_project"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
