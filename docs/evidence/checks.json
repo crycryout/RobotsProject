@@ -1,0 +1,194 @@
+{
+  "cli_help": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.preflight",
+        "--help"
+      ],
+      "elapsed_seconds": 0.1500458619557321,
+      "exit_code": 0,
+      "module": "preflight",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.smoke",
+        "--help"
+      ],
+      "elapsed_seconds": 0.17562487488612533,
+      "exit_code": 0,
+      "module": "smoke",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.collect",
+        "--help"
+      ],
+      "elapsed_seconds": 0.17092027701437473,
+      "exit_code": 0,
+      "module": "collect",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.validate_trajectories",
+        "--help"
+      ],
+      "elapsed_seconds": 0.15933002438396215,
+      "exit_code": 0,
+      "module": "validate_trajectories",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.evaluate",
+        "--help"
+      ],
+      "elapsed_seconds": 0.16486404463648796,
+      "exit_code": 0,
+      "module": "evaluate",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.summarize",
+        "--help"
+      ],
+      "elapsed_seconds": 0.13852599216625094,
+      "exit_code": 0,
+      "module": "summarize",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.benchmark",
+        "--help"
+      ],
+      "elapsed_seconds": 0.17854751832783222,
+      "exit_code": 0,
+      "module": "benchmark",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.positive_control",
+        "--help"
+      ],
+      "elapsed_seconds": 0.1689517181366682,
+      "exit_code": 0,
+      "module": "positive_control",
+      "usage_present": true
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "robots_project.cli.replay_check",
+        "--help"
+      ],
+      "elapsed_seconds": 0.16873622499406338,
+      "exit_code": 0,
+      "module": "replay_check",
+      "usage_present": true
+    }
+  ],
+  "pytest_receipt": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "cpu_only_seconds": 1.7162724938243628,
+    "elapsed_seconds": 1.7162724938243628,
+    "error": null,
+    "exclusive_gpu_at_start": null,
+    "exclusive_gpu_throughout": "See per-job benchmark monitoring; start check alone is insufficient",
+    "exit_code": 0,
+    "gpu_count": 0,
+    "gpu_hours": 0.0,
+    "gpu_uuid": null,
+    "log": "outputs/jobs/final-cpu-checks.log",
+    "max_seconds": 300,
+    "name": "final-cpu-checks",
+    "start_unix": 1791477273.3438978
+  },
+  "ruff_receipt": {
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "src",
+      "tests",
+      "scripts"
+    ],
+    "cpu_only_seconds": 0.0318235601298511,
+    "elapsed_seconds": 0.0318235601298511,
+    "error": null,
+    "exclusive_gpu_at_start": null,
+    "exclusive_gpu_throughout": "See per-job benchmark monitoring; start check alone is insufficient",
+    "exit_code": 0,
+    "gpu_count": 0,
+    "gpu_hours": 0.0,
+    "gpu_uuid": null,
+    "log": "outputs/jobs/final-lint.log",
+    "max_seconds": 120,
+    "name": "final-lint",
+    "start_unix": 1791477305.4094648
+  },
+  "ruff_report": "All checks passed!",
+  "source_file_sha256": {
+    "src/robots_project/__init__.py": "483c68be80c40a72fd9b089e9fdd5f9fc03a22f426a85864cb60a20414b8bba7",
+    "src/robots_project/cli/__init__.py": "c85f3fd7a1ee306106b50b4a0bd92a3de00c2009519e9aad71524ae9dfcc294f",
+    "src/robots_project/cli/benchmark.py": "3ff0c80998383dee73e8e6202df6e8dc7926f23bfc39aae8b263928acd47e8bc",
+    "src/robots_project/cli/collect.py": "efaec0a5a5af8f0e8618932743bd0040270c5efe3cb48934c3fc9ffd8a1c3805",
+    "src/robots_project/cli/evaluate.py": "ee8e598449bd4b30d1ab6858d678a52c865d5bbcf8fb4993cc01b34247f54474",
+    "src/robots_project/cli/positive_control.py": "30f1b7b6b97da0333105627b276ebaac4b0fd1eabc86fdba7fdf7e7077f1c315",
+    "src/robots_project/cli/preflight.py": "1c2d8c86228e2e1c065be937d176d5340e9764fc420869e78a52750e1ae73750",
+    "src/robots_project/cli/replay_check.py": "2c4e16aa1e396b23ab6a36242f67a51f1f4dc1c6bf57c43bb762760cb36edfff",
+    "src/robots_project/cli/smoke.py": "86f5225092c3437958201581d5c300a2d3ad32b2b0646d53b3424bf0ae330ba0",
+    "src/robots_project/cli/summarize.py": "6262a41085588f1c42bd0d8ee50fec10e654836bf297728a112800f5ca168f98",
+    "src/robots_project/cli/validate_trajectories.py": "7089efd893e5af94842d6057978b3e279d1692c94f3ede4d9eac0b3d0c288585",
+    "src/robots_project/config.py": "33ef3838e893a56354b6bd5c8a531c13fde7faf2f057eae945f6e4830ec5f93e",
+    "src/robots_project/data/__init__.py": "1ee8e306fc2f120db320a3c14e57702666f2e8e63d4ad28a6ddde0548871a3f3",
+    "src/robots_project/data/store.py": "286977eef5477476fd63ef7ff3ef4ec9b6b2cda433b08c3a41f1d71c83de3c71",
+    "src/robots_project/data/validation.py": "69b39ce5225d60c5d2358d685f63af085225b018567a9911daaaf919477fac2a",
+    "src/robots_project/envs/__init__.py": "b14f1040c26a55619938c25f04f123cbdedf2a3f997e688826420e1dca0c4dc4",
+    "src/robots_project/envs/fake.py": "7f74ba8228eb807ab0da240202e1895b3e8d765ac29740b0012c0955d72036e5",
+    "src/robots_project/envs/maniskill.py": "cc10cb0f659c071b6a30b2608b76c7a6bcaa977b2b7e26ba3c7756ec64329698",
+    "src/robots_project/envs/observations.py": "7e504904bbb727f0e6bb218cd677dc2d68450e512f01c69aa752c3076990628d",
+    "src/robots_project/evaluation/__init__.py": "0b49900d8701dbde74d0ec6d05c5dafbdf18e29fcd7dba72060f29f6a428c72c",
+    "src/robots_project/evaluation/artifacts.py": "a62c7e78c461768a2b8a3a56479c51baa89d7aa4805a7447a401ee828669e242",
+    "src/robots_project/evaluation/metrics.py": "193da887ae8b56596027661e4850749d4333927f7f7d7d3b9bd1be56ec4f7d6b",
+    "src/robots_project/evaluation/splits.py": "65b7fc9d9e2bc0445bcebaa02a0c4ad973d2d1a751975afb5a4314ca358231f8",
+    "src/robots_project/integration/__init__.py": "5f13c55de308668d9cf7cde69bd59cace442dcd1e064a3c455e828734532843a",
+    "src/robots_project/integration/alignment.py": "cc8b669f5a188c93f7793297e5540c4d39a170ce5f53a1e9fd3b0a52608a8108",
+    "src/robots_project/integration/rewards.py": "4c3f4b4fd505869759ba65f2e68437b15b71eb701e9f9f9f86ff6e22db94ac42",
+    "src/robots_project/policies/__init__.py": "dd176d85779d7107ee4aa90d6716b9744905f08a2526201904a961038948eb95",
+    "src/robots_project/policies/controls.py": "feba52ae348f6a578471b153d3c356246c01cc741e5723ad2621f32578516296",
+    "src/robots_project/policies/invoke.py": "c8ca124d6cc660dbd1d19f42d92cb04a9691ac4bedba629dcdf07435f1d58fe4",
+    "src/robots_project/rollout/__init__.py": "4bfc3726fb89ec8cd814c4ec01798bea066d4fc684a8446993241477485794f6",
+    "src/robots_project/rollout/collector.py": "8af03af76bb03056badc20efe591f3626cdcf81e43c8276e0dd34d7504028a51",
+    "src/robots_project/types.py": "22f368cb04daa24c3778cf9374133d2ccb44a3efbb96eec5ba448885627a3409",
+    "src/robots_project/utils.py": "3bc1d8772c15f0070b9a517c69a7ec83c8f6726ea6c2ede8aaae3bf57886d4c9"
+  },
+  "status": "PASSED",
+  "test_report": ".............................                                            [100%]\n29 passed in 1.35s",
+  "tests_passed": 29
+}

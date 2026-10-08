@@ -1,0 +1,288 @@
+{
+  "boundary_test_command": "python -m pytest -q",
+  "boundary_tests_passed": 29,
+  "phase": "P1-P2",
+  "real_collection": [
+    {
+      "episodes": 20,
+      "exit_code": 0,
+      "obs_mode": "state_dict",
+      "run_dir": "outputs/p2-pushcube-state",
+      "success_at_end": 0.0,
+      "success_once": 0.0,
+      "summary": {
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "intended": 20,
+        "macro_conservative_success_once": 0.0,
+        "macro_success_at_end": 0.0,
+        "macro_success_once": 0.0,
+        "per_task": {
+          "PushCube-v1": {
+            "attempted_episodes": 20,
+            "attempts": 20,
+            "complete": true,
+            "completed": 20,
+            "conservative_success_at_end": 0.0,
+            "conservative_success_once": 0.0,
+            "error_rate": 0.0,
+            "failed_attempts": 0,
+            "intended": 20,
+            "missing": 0,
+            "return_env_mean": 3.8868066534399985,
+            "steps_mean": 50,
+            "steps_to_first_success_mean": null,
+            "success_at_end": 0.0,
+            "success_at_end_count": 0,
+            "success_at_end_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "success_once": 0.0,
+            "success_once_count": 0,
+            "success_once_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "time_to_first_success_mean": null
+          }
+        },
+        "policy_specs": {
+          "action_spec_id": "maniskill:901eb03c7c85c0f960a3",
+          "checkpoint_revision": null,
+          "chunk_length": 4,
+          "policy_version": "random-native-v1",
+          "privileged_policy": false,
+          "real_wam": false,
+          "synthetic": false,
+          "training_extras": null
+        },
+        "primary_metric": "success_once",
+        "run_id": "p2-pushcube-state",
+        "schema_version": "1.0",
+        "synthetic": false,
+        "uncertainty_scope": "Finite-episode uncertainty of a fixed checkpoint; no training-seed variability."
+      },
+      "synthetic": false,
+      "task_id": "PushCube-v1",
+      "transitions": 1000,
+      "valid": true
+    },
+    {
+      "episodes": 20,
+      "exit_code": 0,
+      "obs_mode": "state_dict",
+      "run_dir": "outputs/p2-pickcube-state",
+      "success_at_end": 0.0,
+      "success_once": 0.0,
+      "summary": {
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "intended": 20,
+        "macro_conservative_success_once": 0.0,
+        "macro_success_at_end": 0.0,
+        "macro_success_once": 0.0,
+        "per_task": {
+          "PickCube-v1": {
+            "attempted_episodes": 20,
+            "attempts": 20,
+            "complete": true,
+            "completed": 20,
+            "conservative_success_at_end": 0.0,
+            "conservative_success_once": 0.0,
+            "error_rate": 0.0,
+            "failed_attempts": 0,
+            "intended": 20,
+            "missing": 0,
+            "return_env_mean": 2.235352184204385,
+            "steps_mean": 50,
+            "steps_to_first_success_mean": null,
+            "success_at_end": 0.0,
+            "success_at_end_count": 0,
+            "success_at_end_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "success_once": 0.0,
+            "success_once_count": 0,
+            "success_once_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "time_to_first_success_mean": null
+          }
+        },
+        "policy_specs": {
+          "action_spec_id": "maniskill:901eb03c7c85c0f960a3",
+          "checkpoint_revision": null,
+          "chunk_length": 4,
+          "policy_version": "random-native-v1",
+          "privileged_policy": false,
+          "real_wam": false,
+          "synthetic": false,
+          "training_extras": null
+        },
+        "primary_metric": "success_once",
+        "run_id": "p2-pickcube-state",
+        "schema_version": "1.0",
+        "synthetic": false,
+        "uncertainty_scope": "Finite-episode uncertainty of a fixed checkpoint; no training-seed variability."
+      },
+      "synthetic": false,
+      "task_id": "PickCube-v1",
+      "transitions": 1000,
+      "valid": true
+    },
+    {
+      "episodes": 20,
+      "exit_code": 0,
+      "obs_mode": "rgb",
+      "run_dir": "outputs/p2-pushcube-rgb",
+      "success_at_end": 0.0,
+      "success_once": 0.0,
+      "summary": {
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "intended": 20,
+        "macro_conservative_success_once": 0.0,
+        "macro_success_at_end": 0.0,
+        "macro_success_once": 0.0,
+        "per_task": {
+          "PushCube-v1": {
+            "attempted_episodes": 20,
+            "attempts": 20,
+            "complete": true,
+            "completed": 20,
+            "conservative_success_at_end": 0.0,
+            "conservative_success_once": 0.0,
+            "error_rate": 0.0,
+            "failed_attempts": 0,
+            "intended": 20,
+            "missing": 0,
+            "return_env_mean": 3.2681167401373385,
+            "steps_mean": 50,
+            "steps_to_first_success_mean": null,
+            "success_at_end": 0.0,
+            "success_at_end_count": 0,
+            "success_at_end_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "success_once": 0.0,
+            "success_once_count": 0,
+            "success_once_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "time_to_first_success_mean": null
+          }
+        },
+        "policy_specs": {
+          "action_spec_id": "maniskill:901eb03c7c85c0f960a3",
+          "checkpoint_revision": null,
+          "chunk_length": 4,
+          "policy_version": "random-native-v1",
+          "privileged_policy": false,
+          "real_wam": false,
+          "synthetic": false,
+          "training_extras": null
+        },
+        "primary_metric": "success_once",
+        "run_id": "p2-pushcube-rgb",
+        "schema_version": "1.0",
+        "synthetic": false,
+        "uncertainty_scope": "Finite-episode uncertainty of a fixed checkpoint; no training-seed variability."
+      },
+      "synthetic": false,
+      "task_id": "PushCube-v1",
+      "transitions": 1000,
+      "valid": true
+    },
+    {
+      "episodes": 20,
+      "exit_code": 0,
+      "obs_mode": "rgb",
+      "run_dir": "outputs/p2-pickcube-rgb",
+      "success_at_end": 0.0,
+      "success_once": 0.0,
+      "summary": {
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "intended": 20,
+        "macro_conservative_success_once": 0.0,
+        "macro_success_at_end": 0.0,
+        "macro_success_once": 0.0,
+        "per_task": {
+          "PickCube-v1": {
+            "attempted_episodes": 20,
+            "attempts": 20,
+            "complete": true,
+            "completed": 20,
+            "conservative_success_at_end": 0.0,
+            "conservative_success_once": 0.0,
+            "error_rate": 0.0,
+            "failed_attempts": 0,
+            "intended": 20,
+            "missing": 0,
+            "return_env_mean": 2.5894307783339174,
+            "steps_mean": 50,
+            "steps_to_first_success_mean": null,
+            "success_at_end": 0.0,
+            "success_at_end_count": 0,
+            "success_at_end_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "success_once": 0.0,
+            "success_once_count": 0,
+            "success_once_wilson95": [
+              0.0,
+              0.16112515805281938
+            ],
+            "time_to_first_success_mean": null
+          }
+        },
+        "policy_specs": {
+          "action_spec_id": "maniskill:901eb03c7c85c0f960a3",
+          "checkpoint_revision": null,
+          "chunk_length": 4,
+          "policy_version": "random-native-v1",
+          "privileged_policy": false,
+          "real_wam": false,
+          "synthetic": false,
+          "training_extras": null
+        },
+        "primary_metric": "success_once",
+        "run_id": "p2-pickcube-rgb",
+        "schema_version": "1.0",
+        "synthetic": false,
+        "uncertainty_scope": "Finite-episode uncertainty of a fixed checkpoint; no training-seed variability."
+      },
+      "synthetic": false,
+      "task_id": "PickCube-v1",
+      "transitions": 1000,
+      "valid": true
+    }
+  ],
+  "recovery": {
+    "attempts": 24,
+    "complete": true,
+    "completed_before_interruption": 4,
+    "completed_episodes": 20,
+    "error_rate": 0.16666666666666666,
+    "interrupted_attempts": 4,
+    "interruption_exit_code": 124,
+    "previous_checksums_preserved": true,
+    "quarantined_partial_files": 4,
+    "resume_exit_code": 0,
+    "retry_limit": 1,
+    "run_dir": "outputs/p2-recovery-audit",
+    "synthetic": false,
+    "unique_ids": 20
+  },
+  "status": "PASSED"
+}

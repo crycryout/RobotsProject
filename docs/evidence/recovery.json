@@ -1,0 +1,16 @@
+{
+  "attempts": 24,
+  "complete": true,
+  "completed_before_interruption": 4,
+  "completed_episodes": 20,
+  "error_rate": 0.16666666666666666,
+  "interrupted_attempts": 4,
+  "interruption_exit_code": 124,
+  "previous_checksums_preserved": true,
+  "quarantined_partial_files": 4,
+  "resume_exit_code": 0,
+  "retry_limit": 1,
+  "run_dir": "outputs/p2-recovery-audit",
+  "synthetic": false,
+  "unique_ids": 20
+}

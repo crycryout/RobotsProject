@@ -1,0 +1,80 @@
+{
+  "mock_alignment": {
+    "pairs": 100,
+    "scientific_reward": false,
+    "synthetic_pairs": 100,
+    "valid_pairs": 50,
+    "zero_reward_version": "zero-hook-v1"
+  },
+  "model_acceptance": "NOT_RUN",
+  "phase": "P5",
+  "replay_report": {
+    "complete": true,
+    "fields": {
+      "agent/qpos": {
+        "matches": true,
+        "max_absolute_error": 2.384185791015625e-07
+      },
+      "agent/qvel": {
+        "matches": true,
+        "max_absolute_error": 2.2649765014648438e-06
+      },
+      "extra/goal_pos": {
+        "matches": true,
+        "max_absolute_error": 0.0
+      },
+      "extra/obj_pose": {
+        "matches": true,
+        "max_absolute_error": 0.0
+      },
+      "extra/tcp_pose": {
+        "matches": true,
+        "max_absolute_error": 5.029141902923584e-07
+      }
+    },
+    "limitation": "Same version/configuration replay check, not cross-version determinism.",
+    "matches": true,
+    "source": "outputs/p5-state-sample/episodes/smoke-PushCube-v1-17000.h5",
+    "tolerance": 0.0001
+  },
+  "samples": [
+    {
+      "action_spec_id": "maniskill:85b57e6ca44b0df43636",
+      "bytes": 232512,
+      "provenance": "outputs/p5-state-sample/provenance.json",
+      "purpose": "Real native state trajectory; diagnostics and state-control interface",
+      "sha256": "d069111419882648edc66651d11b2288eb8550483e9976d06ad8607ef1f28134",
+      "steps": 50,
+      "summary": "outputs/p5-state-sample/summary.json",
+      "summary_sha256": "0b83830e3d941b302c21673fd20eb31d247f46be6361761aefd4e19327a4692a",
+      "synthetic": false,
+      "trajectory": "outputs/p5-state-sample/episodes/smoke-PushCube-v1-17000.h5"
+    },
+    {
+      "action_spec_id": "maniskill:85b57e6ca44b0df43636",
+      "bytes": 1755300,
+      "provenance": "outputs/p5-rgb-sample/provenance.json",
+      "purpose": "Real native sensor RGB trajectory; visual data interface",
+      "sha256": "8898e7aa09776ebd0130d73de6eb8e7c7ff49b34fc2a20b7d0fa58a34f7adea4",
+      "steps": 50,
+      "summary": "outputs/p5-rgb-sample/summary.json",
+      "summary_sha256": "8baa7a3110d9541ba2084f0bffef76facf0e5e8695d526fcddd9596033a3cbcf",
+      "synthetic": false,
+      "trajectory": "outputs/p5-rgb-sample/episodes/smoke-PushCube-v1-37000.h5"
+    },
+    {
+      "action_spec_id": "maniskill:85b57e6ca44b0df43636",
+      "bytes": 5314684,
+      "provenance": "outputs/p5-mock-fixture/provenance.json",
+      "purpose": "Synthetic prediction-interface fixture with real sensor inputs",
+      "sha256": "3168f1673d8fd414e0a4ae69b39e2b06f1c8bfc9f7db518852646256e949ba3a",
+      "steps": 50,
+      "summary": "outputs/p5-mock-fixture/summary.json",
+      "summary_sha256": "fa11d90a082db16795c21234a3c6a62da79b0cb677c4648164e3030e3045f934",
+      "synthetic": true,
+      "trajectory": "outputs/p5-mock-fixture/episodes/smoke-PushCube-v1-37000.h5"
+    }
+  ],
+  "status": "PASSED",
+  "training_acceptance": "NOT_RUN"
+}

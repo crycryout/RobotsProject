@@ -1,0 +1,383 @@
+{
+  "command": "python -m robots_project.cli.evaluate --config configs/eval/dev.yaml --policy random --run-dir outputs/p3-validation-random",
+  "exit_code": 0,
+  "formal_test": "NOT_RUN; reserved for supplied team checkpoints",
+  "phase": "P3",
+  "regenerated_summary_identical": true,
+  "status": "PASSED",
+  "summary": {
+    "attempts": 40,
+    "complete": true,
+    "completed": 40,
+    "intended": 40,
+    "macro_conservative_success_once": 0.0,
+    "macro_success_at_end": 0.0,
+    "macro_success_once": 0.0,
+    "method_status": {
+      "pretrained_wam": "NOT_RUN",
+      "task_only_rl": "NOT_RUN",
+      "task_plus_alignment_rl": "NOT_RUN"
+    },
+    "per_task": {
+      "PickCube-v1": {
+        "attempted_episodes": 20,
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "conservative_success_at_end": 0.0,
+        "conservative_success_once": 0.0,
+        "error_rate": 0.0,
+        "failed_attempts": 0,
+        "intended": 20,
+        "missing": 0,
+        "return_env_mean": 2.365047051094007,
+        "steps_mean": 50,
+        "steps_to_first_success_mean": null,
+        "success_at_end": 0.0,
+        "success_at_end_count": 0,
+        "success_at_end_wilson95": [
+          0.0,
+          0.16112515805281938
+        ],
+        "success_once": 0.0,
+        "success_once_count": 0,
+        "success_once_wilson95": [
+          0.0,
+          0.16112515805281938
+        ],
+        "time_to_first_success_mean": null
+      },
+      "PushCube-v1": {
+        "attempted_episodes": 20,
+        "attempts": 20,
+        "complete": true,
+        "completed": 20,
+        "conservative_success_at_end": 0.0,
+        "conservative_success_once": 0.0,
+        "error_rate": 0.0,
+        "failed_attempts": 0,
+        "intended": 20,
+        "missing": 0,
+        "return_env_mean": 3.755574079602957,
+        "steps_mean": 50,
+        "steps_to_first_success_mean": null,
+        "success_at_end": 0.0,
+        "success_at_end_count": 0,
+        "success_at_end_wilson95": [
+          0.0,
+          0.16112515805281938
+        ],
+        "success_once": 0.0,
+        "success_once_count": 0,
+        "success_once_wilson95": [
+          0.0,
+          0.16112515805281938
+        ],
+        "time_to_first_success_mean": null
+      }
+    },
+    "policy": "random",
+    "policy_specs": {
+      "action_spec_id": "maniskill:85b57e6ca44b0df43636",
+      "checkpoint_revision": null,
+      "chunk_length": 4,
+      "policy_version": "random-native-v1",
+      "privileged_policy": false,
+      "real_wam": false,
+      "synthetic": false,
+      "training_extras": null
+    },
+    "primary_metric": "success_once",
+    "run_id": "p3-validation-random",
+    "schema_version": "1.0",
+    "synthetic": false,
+    "uncertainty_scope": "Finite-episode uncertainty of a fixed checkpoint; no training-seed variability."
+  },
+  "trajectory_validation": {
+    "complete_run": true,
+    "episodes": [
+      {
+        "episode_id": "validation-PushCube-v1-0000",
+        "sha256": "ff40ae29a0bb382db5e6001e7cc2fb9e34a65a4cf2f3415dfdb053d55a502cc5",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0001",
+        "sha256": "d0080104482930d00c0692924e30654248469a3a78956458f505a2d0b8abdb22",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0002",
+        "sha256": "d70d6f614abb3e1e2dd2766a3a41775625d13d6d2108afc164b649bafa89dcf9",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0003",
+        "sha256": "bbb60141c65f69b76d092fda39d6d5011bff27a1a17335a5c916b3ff764c47d2",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0004",
+        "sha256": "0dd6c4f7e17352b319ae44eb7bc871bdc3622ea4ce6ab1abe4a97e59ffdf69c7",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0005",
+        "sha256": "1c2bb79911f5056a670c35c4e86a995ae42ea6493eaf87f5017c433f5430f5f5",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0006",
+        "sha256": "cb873e7bf35752d85df588ea4e38796ba70de1f4473842b7cda070f2359516e9",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0007",
+        "sha256": "0ed6a5a85b8a12ffcc71b75cd119803cbefe269ecf9a9fc28db9c6e94a6d6cdb",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0008",
+        "sha256": "9f8ba9aaf912e7474ba5095389b0bd695b9065c5d6919dda43dae8e8aa4b9518",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0009",
+        "sha256": "47b2f4ec1e7696c9452f588f4d363d880c65f13bd51cdefec6ddfcdbc90e4b14",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0010",
+        "sha256": "e212e734b9a675c54260f990a9ac0d43efcdaf54868a99df9ddc81c1651488d2",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0011",
+        "sha256": "e461780c2430190cdb81e9d79a188b527ff5f8f5e2bc74bcb7022821ce816988",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0012",
+        "sha256": "b01ad794eb9b43a18559e39d17fabaf5d61f4f311128eb07be64eb268592870a",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0013",
+        "sha256": "7c629ca06fdf10b1924259adcc576b9cd2979fcfa9bb791c7ea9edf7a704a8f7",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0014",
+        "sha256": "438c3325476a4c5b78a89510d7f86b55febfd9f151b83ad357cde10f1075425a",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0015",
+        "sha256": "31851e5f4f1cf7df7faaabadeb0e074b1e26e00321245ea91134c69e26e0f4ec",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0016",
+        "sha256": "69bf0f7eca00e22fbdd942d90f996af1f7b1858b76eaf77b6d7cfb365b718eab",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0017",
+        "sha256": "01677956d510eb3e783ec9bccc6ae16cd92446fc74cc86b9a094a18b627560c0",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0018",
+        "sha256": "59819e793458f3e37ca512f95d1d5f25e1ca90786fb67aee5e2b905ecc472d1b",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PushCube-v1-0019",
+        "sha256": "2d5337c42b75c6cc1fabe35327347450f5b4aae1fb94eeb2f363c097dc274aca",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0000",
+        "sha256": "de61e975721ce2d52fc16122629d149fb83082c60b95f91dab510172733bde51",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0001",
+        "sha256": "55c3d96fcd20d5a0cad6440e5e656dc5717eafeb28022e813e0ecc05190254df",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0002",
+        "sha256": "8eb2b536870382608514a0e3a5e38587b4e12d61ccafb8b3ebe816827f44aff9",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0003",
+        "sha256": "2aa6e2be69b91a62b5d747dadd49f1b974bdd221635935e3dad8185db0b3fc7c",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0004",
+        "sha256": "c2afdc83d211dbc962e471bf1aebe632d4b9e29819937f9b2aa1697ea7deee10",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0005",
+        "sha256": "f60e6af5f177a8f4ac70b21a7b0358fea73ef9d18f2e2c9204af16231e933181",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0006",
+        "sha256": "c00394903d63f051f1db69d00a8fe09a8347c91ecbd222475f5cc6db5f4f0f1f",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0007",
+        "sha256": "d4a8eab7f2a43a0a178428bc6424585a18befc53ce0c0a6ba317480127614f79",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0008",
+        "sha256": "aee352237735c8e8fe3461a882ed0b3b46bf3f8bfce3cef955c27082c14673ba",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0009",
+        "sha256": "050d4996d78933ee7ac700e8fa153096410d757a0d13b44e0719eeac76d19791",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0010",
+        "sha256": "97e97d996d60975f6934d8ed25b5b83f6dd4e04d745af9c9981d499891f80791",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0011",
+        "sha256": "e53b682d5b62ab621e29f5365e81dcc39174ccbc7e044230bb726b9ae2f04954",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0012",
+        "sha256": "b01df563b5f33a1320393cf826991b5c73728d18bad168baa2d21c0e8f842058",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0013",
+        "sha256": "75edbf5b4e7a0329a3cdc07afe97ed753d7556964c79efa3188c28f6c76be939",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0014",
+        "sha256": "bcba923c37eadb26ce4664237eb1db9fbed7b514428ef66c124b2a1ed46a9f1e",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0015",
+        "sha256": "7205e726026007b470757c63a360855a07e9c70a80a67c29cddd947d396ecb8d",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0016",
+        "sha256": "3d73b3083314d179fcdb037001992dadc90618d9499f62e577fc5a079eb8e933",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0017",
+        "sha256": "5d451108328543b93ca877a989de89ef5a99664c7dc1657c1f031ac6cda244c3",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0018",
+        "sha256": "17f864b7ce48ee5b80ea6bdbb0be23d13ffa40bbfd6d3047a1321b4c3343ed38",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      },
+      {
+        "episode_id": "validation-PickCube-v1-0019",
+        "sha256": "2cf8d227396a0ab70ea47fcdf49726086cf0d3027027bf894c89dbdf2fac27f9",
+        "synthetic": false,
+        "transitions": 50,
+        "valid": true
+      }
+    ],
+    "errors": [],
+    "valid": true
+  }
+}

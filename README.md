@@ -1,34 +1,66 @@
 # RobotsProject
 
-Robotics course final project: RL Post-Training for World-Action Models.
+Working simulation collection, rollout storage and evaluation infrastructure for RL post-training of world-action models. P0-P5 independent infrastructure is implemented and tested on the allocated H800. Real-WAM, scientific reward and RL checkpoint integration remain P6 team dependencies.
 
-This repository currently provides the execution plan for the **simulation, rollout infrastructure, and evaluation** workstream. It does not yet contain a completed implementation or H800 experiment results.
+## Run
 
-## Start Here
+1. Install the locked simulation environment:
 
-Read the [detailed execution plan](docs/EXECUTION_PLAN.md). It contains phases P0-P6, interface contracts, trajectory schemas, the evaluation protocol, resource budgets, acceptance checks, and a complete server-side Codex prompt.
+   ```bash
+   uv sync --frozen --extra sim --group dev
+   source .venv/bin/activate
+   ```
 
-Environment setup, policy-independent collection, trajectory validation, common evaluation, and handoff specifications can be developed independently. Final acceptance of the real WAM, auxiliary rewards, and RL updates requires team integration.
+2. Select the inspected device and verify current capabilities:
 
-## Execute on the H800 Server
+   ```bash
+   export CUDA_VISIBLE_DEVICES=GPU-92d5af20-d2aa-3a17-8bf5-866a22db81f1
+   export OMP_NUM_THREADS=4
+   export MS_ASSET_DIR="$PWD/data/assets"
+   export MS_SKIP_ASSET_DOWNLOAD_PROMPT=1
+   python -m robots_project.cli.preflight --output outputs/preflight.json
+   python -m robots_project.cli.smoke --config configs/envs/pushcube_rgb.yaml
+   ```
 
-1. Clone this repository, or preserve local changes and update an existing checkout to the current `main` branch.
-2. Start Codex in the repository directory.
-3. Give it the following instruction.
+3. Collect native-control trajectories:
 
-```text
-Read README.md and docs/EXECUTION_PLAN.md. Follow the execution prompt in Section 13 to implement P0-P5. First validate the actual H800 hardware and rendering path, then implement the independent simulation, rollout collection, trajectory validation, evaluation, and integration contracts. Run acceptance checks for each phase and record commands and evidence in docs/STATUS.md. Deliver working code, not just another plan. Do not report mock results as WAM experiments or silently take ownership of reward design and the RL trainer. When hardware or model dependencies block a component, document the blocker and continue independent work. Keep all authored project content in English and use role-based labels without personal names.
-```
+   ```bash
+   python -m robots_project.cli.collect --config configs/envs/pushcube_rgb.yaml --policy random --num-envs 4 --episodes 20 --run-dir outputs/example
+   python -m robots_project.cli.validate_trajectories --run-dir outputs/example
+   ```
 
-## Constraints to Check First
+4. Run the frozen development protocol and regenerate summaries:
 
-- **RoboLab officially requires an RTX GPU.** Two H800 GPUs do not establish compatibility with its full simulation/rendering stack. Begin with the ManiSkill route and actual-machine validation.
-- **Validate state and RGB separately.** A working state environment does not establish a complete visual-WAM pipeline.
-- **Action dimensions do not establish semantic compatibility.** Confirm coordinate frames, units, normalization, and control frequency before connecting DROID outputs to another controller.
-- **The complete course rubric has not been supplied.** This plan follows the proposal's responsibility split; it does not establish completion of the whole team project.
+   ```bash
+   python -m robots_project.cli.evaluate --config configs/eval/dev.yaml --policy random --run-dir outputs/example-validation
+   python -m robots_project.cli.summarize --run-dir outputs/example-validation
+   ```
 
-Technical references and limitations are in Sections 1 and 14 of the plan. The original proposal PDF, model weights, and experiment datasets are not uploaded to this public repository.
+5. Verify infrastructure correctness:
 
-## Documentation Convention
+   ```bash
+   python -m pytest -q
+   ruff check src tests scripts
+   ```
 
-Use English for authored documentation, comments, status reports, and handoff text. Use neutral filenames and role-based descriptions without personal names.
+## Measured acceptance
+
+Both `PushCube-v1` and `PickCube-v1` completed twenty state and twenty real sensor-RGB episodes each. All eighty basic acceptance episodes passed trajectory validation. Random-policy task success was zero; this is an infrastructure control result. Official privileged-state motion planning subsequently produced a genuine successful episode on each task.
+
+Real RGB interruption/recovery preserved completed checksums, quarantined four partial episode files and completed the twenty-episode budget without duplicates. Frozen development evaluation completed forty episodes and reproduced byte-identical statistics from its episode table.
+
+On one H800, native random-policy collection with audited HDF5 achieved approximately 28.5, 59.5 and 81.1 RGB transitions/s at 1, 4 and 16 environments, respectively. These include serialization and resets and do not estimate real-WAM inference or RL training performance. Camera resolution was 128 x 128; official positive controls used separately labeled CPU physics and native absolute joint control.
+
+## Documentation and evidence
+
+| File | Purpose |
+|---|---|
+| [STATUS.md](docs/STATUS.md) | Phase acceptance, measured capabilities, results and remaining dependencies |
+| [RUNBOOK_H800.md](docs/RUNBOOK_H800.md) | Rebuild, GPU selection, bounded jobs, controls and executable commands |
+| [EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md) | Frozen splits, common horizons, statistics and error accounting |
+| [INTERFACE_CONTRACT.md](docs/INTERFACE_CONTRACT.md) | Model, action, prediction, reward and training responsibilities |
+| [Execution plan](docs/EXECUTION_PLAN.md) | Original 2026-10-08 plan; implementation targets are tracked in STATUS |
+
+Compact measured receipts live in [docs/evidence](docs/evidence). Raw trajectories and local handoff samples remain under gitignored outputs. No weights, raw HDF5 data, large videos or secrets are uploaded. RoboLab remains `BLOCKED_HARDWARE` on the allocated H800-only route. Mock outputs are explicitly synthetic and excluded from WAM or RL figures. The instructor's final rubric and submission requirements remain unspecified.
+
+Next action: read [STATUS.md](docs/STATUS.md), then use the runbook command for the required phase.
