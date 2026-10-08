@@ -1,0 +1,9 @@
+schema_version: '1.0'
+env_configs:
+  - configs/envs/pushcube_state.yaml
+  - configs/envs/pushcube_rgb.yaml
+num_envs: [1, 4, 16]
+warmup_steps: 50
+measure_steps: 500
+repeats: 3
+episode_horizon: 50

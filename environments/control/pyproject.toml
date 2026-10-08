@@ -1,0 +1,34 @@
+[project]
+name = "robots-project-official-control"
+version = "0.1.0"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==1.26.4",
+  "opencv-python==4.11.0.86",
+  "torch==2.7.1",
+  "mani_skill==3.0.1",
+  "sapien==3.0.3",
+  "gymnasium==1.3.0",
+  "h5py==3.16.0",
+  "PyYAML==6.0.3",
+  "psutil==7.2.2",
+  "matplotlib==3.11.2",
+  "pillow==12.3.0",
+]
+
+[tool.uv]
+constraint-dependencies = [
+  "charset-normalizer==3.5.1", "filelock==4.0.4", "fonttools==4.66.0",
+  "gitpython==3.1.62", "hf-xet==1.6.0", "huggingface-hub==2.0.0",
+  "imageio==2.37.4", "ipython==9.17.1", "kiwisolver==1.5.1",
+  "markupsafe==3.0.3", "pygments==2.21.0", "trimesh==5.1.0", "wcwidth==0.9.1",
+]
+
+[[tool.uv.index]]
+name = "control-wheel-mirror"
+url = "https://mirrors.aliyun.com/pypi/simple"
+explicit = true
+
+[tool.uv.sources]
+numpy = { index = "control-wheel-mirror" }
+opencv-python = { index = "control-wheel-mirror" }
