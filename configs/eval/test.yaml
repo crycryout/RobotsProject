@@ -1,0 +1,8 @@
+schema_version: '1.0'
+split: test
+episodes_per_task: 50
+num_envs: 1
+manifest: manifests/test.jsonl
+tasks:
+  - configs/envs/pushcube_rgb.yaml
+  - configs/envs/pickcube_rgb.yaml

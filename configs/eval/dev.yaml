@@ -1,0 +1,8 @@
+schema_version: '1.0'
+split: validation
+episodes_per_task: 20
+num_envs: 4
+manifest: manifests/validation.jsonl
+tasks:
+  - configs/envs/pushcube_state.yaml
+  - configs/envs/pickcube_state.yaml
