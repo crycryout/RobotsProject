@@ -1,12 +1,12 @@
-.venv/
+.venv*/
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
-outputs/
-data/
-checkpoints/
+/outputs/
+/data/
+/checkpoints/
 .cache/
 *.h5
 *.hdf5
