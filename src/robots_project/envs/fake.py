@@ -20,13 +20,23 @@ class FakeEnv:
         self.state = np.zeros((self.num_envs, 2), dtype=np.float32)
         self.action_spec = ActionSpec("fake-native-2d-v1", 2, -np.ones(2, np.float32),
                                       np.ones(2, np.float32), {"units": "synthetic"})
-        self.observation = standardize(self.state, "state")
+        self.observation = self._observe()
         self.executed = []
+
+    def _observe(self):
+        if self.config.obs_mode != "rgb":
+            return standardize(self.state, "state")
+        frames = np.zeros((self.num_envs, self.config.camera["height"],
+                           self.config.camera["width"], 3), dtype=np.uint8)
+        frames[:, :, :, 0] = (self.steps[:, None, None] % 255).astype(np.uint8)
+        frames[:, :, :, 1] = (self.seeds[:, None, None] % 255).astype(np.uint8)
+        return standardize({"sensor_data": {"base_camera": {"rgb": frames}}}, "rgb")
 
     def specs(self):
         return {"backend": "fake", "task_id": self.config.env_id, "synthetic": True,
                 "action_spec": self.action_spec.as_dict(), "dt_sim": 1 / self.config.control_freq,
-                "privileged_observation": True, "num_envs": self.num_envs}
+                "privileged_observation": True, "num_envs": self.num_envs,
+                "preprocessing_version": "sensor-native-rgb-u8-v1"}
 
     def reset(self, env_ids, episode_ids, seeds):
         for slot, episode, seed in zip(env_ids, episode_ids, seeds, strict=True):
@@ -34,7 +44,7 @@ class FakeEnv:
             self.steps[slot] = 0
             self.seeds[slot] = seed
             self.state[slot] = [seed % 1000, 0]
-        self.observation = standardize(self.state, "state")
+        self.observation = self._observe()
         return self.observation
 
     def initial_state(self, slot):
@@ -49,12 +59,12 @@ class FakeEnv:
         success = np.asarray([int(self.steps[s]) in self.success_steps.get(s, set())
                               for s in range(self.num_envs)])
         truncated = self.steps >= self.lengths
-        after = standardize(self.state, "state")
+        after = self._observe()
         reset = None
         if self.config.auto_reset and (success | truncated).any():
             for slot in np.flatnonzero(success | truncated):
                 self.state[slot] = [-999, 0]
-            reset = standardize(self.state, "state")
+            reset = self._observe()
         self.observation = reset or after
         return StepBatch(before, actions.copy(), after, np.ones(self.num_envs, np.float32),
                          success, truncated, success, self.episode_ids.copy(),

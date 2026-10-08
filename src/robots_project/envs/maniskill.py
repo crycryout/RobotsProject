@@ -46,7 +46,9 @@ class ManiSkillAdapter:
         low, high = np.asarray(space.low), np.asarray(space.high)
         signature = json.dumps({"robot": config.robot_id, "control": config.control_mode,
                                 "dimension": space.shape[0], "low": low.tolist(),
-                                "high": high.tolist(), "backend_version": installed}, sort_keys=True)
+                                "high": high.tolist(), "backend_version": installed,
+                                "control_freq": config.control_freq,
+                                "sim_freq": config.sim_freq}, sort_keys=True)
         self.action_spec = ActionSpec(
             id="maniskill:" + hashlib.sha256(signature.encode()).hexdigest()[:20],
             dimension=space.shape[0], low=low, high=high,
@@ -84,6 +86,39 @@ class ManiSkillAdapter:
 
     def initial_state(self, slot: int) -> dict:
         return take(snapshot(self.base.get_state_dict()), [slot])
+
+    def restore_episode(self, path):
+        """Restore a single-slot initial state on the identical backend/configuration."""
+        import h5py
+        import torch
+        from robots_project.data.validation import datasets
+        with h5py.File(path, "r") as f:
+            metadata = json.loads(f.attrs["metadata_json"])
+            original = metadata["resolved_config"]
+            for field in ("env_id", "robot_id", "control_mode", "obs_mode", "sim_backend",
+                          "camera", "control_freq", "sim_freq", "episode_horizon", "backend_version"):
+                if original[field] != getattr(self.config, field):
+                    raise ValueError(f"Replay configuration mismatch at {field}")
+            state = {}
+            for key, ds in datasets(f["initial_state"]).items():
+                cursor = state
+                parts = key.split("/")
+                for part in parts[:-1]:
+                    cursor = cursor.setdefault(part, {})
+                cursor[parts[-1]] = torch.as_tensor(ds[:], device=self.base.device)
+            # Full reset with env_states also resets controllers, elapsed counters and last observations.
+            obs, _ = self.env.reset(seed=[metadata["seed"]],
+                                    options={"env_idx": [0], "reset_to_env_states": {"env_states": state}})
+            self.observation = standardize(obs, self.config.obs_mode)
+            for key, ds in datasets(f["obs"]).items():
+                from robots_project.envs.observations import flatten
+                actual = flatten(self.observation.backend)[key][0]
+                if actual.dtype.kind == "f":
+                    if not np.allclose(actual, ds[0], atol=1e-5, rtol=1e-5):
+                        raise ValueError(f"Restored initial observation differs at {key}")
+                elif not np.array_equal(actual, ds[0]):
+                    raise ValueError(f"Restored initial observation differs at {key}")
+        return self.observation
 
     def step(self, actions: np.ndarray) -> StepBatch:
         import torch

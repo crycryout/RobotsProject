@@ -8,6 +8,7 @@ from robots_project.utils import atomic_json
 
 
 def test_interruption_recovery_no_duplicate_completed_episodes(tmp_path, config):
+    config.retry_limit = 1
     env, policy = make_test_env_policy(config, lengths=[2, 5])
     first = collect(env, policy, config, tmp_path, 4, pause_after_episodes=1)
     saved = first["episodes"][0]
@@ -20,6 +21,8 @@ def test_interruption_recovery_no_duplicate_completed_episodes(tmp_path, config)
     assert len({r["episode_id"] for r in resumed["episodes"]}) == 4
     assert next(r["sha256"] for r in resumed["episodes"] if r["episode_id"] == saved["episode_id"]) == checksum
     assert resumed["recovery"]
+    assert len(resumed["attempts"]) == 5
+    assert len([r for r in resumed["attempts"] if r["status"] == "infrastructure_error"]) == 1
     assert validate_run(tmp_path)["valid"]
 
 
@@ -48,3 +51,18 @@ def test_checksum_and_t_plus_one_validation(tmp_path, config):
         validate_episode(path, row["sha256"])
     with pytest.raises(ValueError, match="T\\+1"):
         validate_episode(path)
+
+
+def test_corrupt_completed_episode_never_counts_as_valid_result(tmp_path, config):
+    env, policy = make_test_env_policy(config)
+    manifest = collect(env, policy, config, tmp_path, 2)
+    row = manifest["episodes"][0]
+    with (tmp_path / row["trajectory"]).open("ab") as f:
+        f.write(b"corruption")
+    env, policy = make_test_env_policy(config)
+    recovered = collect(env, policy, config, tmp_path, 2)
+    assert not recovered["complete"]
+    assert len(recovered["episodes"]) == 1
+    assert len([r for r in recovered["attempts"] if r["status"] == "complete"]) == 1
+    assert len([r for r in recovered["attempts"] if r["status"] == "infrastructure_error"]) == 1
+    assert recovered["recovery"]

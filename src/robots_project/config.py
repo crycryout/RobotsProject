@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+import math
 
 import yaml
 
@@ -54,11 +55,11 @@ class EnvConfig:
             value = getattr(self, name)
             if not isinstance(value, int) or isinstance(value, bool) or value < 1:
                 raise ValueError(f"{name} must be a positive integer")
-        if not 1 <= self.execution_horizon <= self.chunk_length:
+        if not isinstance(self.execution_horizon, int) or isinstance(self.execution_horizon, bool) or not 1 <= self.execution_horizon <= self.chunk_length:
             raise ValueError("Require 1 <= execution_horizon H <= chunk_length K")
         if self.sim_freq % self.control_freq:
             raise ValueError("sim_freq must be divisible by control_freq")
-        if self.policy_timeout_s <= 0 or not 0 < self.max_job_seconds <= 7200:
+        if not math.isfinite(self.policy_timeout_s) or self.policy_timeout_s <= 0 or not 0 < self.max_job_seconds <= 7200:
             raise ValueError("Timeout must be positive and job limit must be in (0, 7200] seconds")
         if self.retry_limit not in range(4):
             raise ValueError("retry_limit must be an integer in [0, 3]")

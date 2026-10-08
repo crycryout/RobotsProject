@@ -11,6 +11,7 @@ import h5py
 import numpy as np
 
 from robots_project.types import ActionSpec, ObservationBatch, PolicyOutput
+from robots_project.utils import sha256_file
 
 
 class RandomPolicy:
@@ -75,6 +76,8 @@ class ReplayPolicy(RandomPolicy):
         super().__init__(action_spec, chunk_length)
         import json
         self.path = Path(path)
+        from robots_project.data.validation import validate_episode
+        validate_episode(self.path)
         with h5py.File(path, "r") as f:
             metadata = json.loads(f.attrs["metadata_json"])
             if metadata["env_specs"]["action_spec"]["id"] != action_spec.id:
@@ -83,6 +86,7 @@ class ReplayPolicy(RandomPolicy):
                 raise ValueError("Cannot replay an incomplete episode")
             self.actions = f["actions/executed"][:]
             self.source_metadata = metadata
+            self.synthetic = bool(metadata["synthetic"])
         if len(self.actions) == 0:
             raise ValueError("Cannot replay an empty episode")
 
@@ -90,6 +94,7 @@ class ReplayPolicy(RandomPolicy):
         specs = super().specs()
         specs.update({"source_episode": self.source_metadata["episode_id"],
                       "source_path": str(self.path), "requires_initial_state_restore": True,
+                      "source_sha256": sha256_file(self.path),
                       "privileged_policy": self.source_metadata.get("privileged_policy", False)})
         return specs
 
@@ -101,7 +106,7 @@ class ReplayPolicy(RandomPolicy):
                 raise ValueError("Replay exhausted before the episode ended")
             actions.append(self.actions[np.minimum(indices, len(self.actions) - 1)])
         return PolicyOutput(np.stack(actions), self.action_spec.id, self.version,
-                            request_context["request_id"])
+                            request_context["request_id"], synthetic=self.synthetic)
 
 
 class MockWAM(RandomPolicy):

@@ -78,6 +78,8 @@ class EpisodeWriter:
         group.create_dataset("denormalized_actions", data=denormalized[batch_index])
         group.create_dataset("planned_actions", data=planned[batch_index])
         group.create_dataset("clip_mask", data=clip_mask[batch_index])
+        if output.raw_model_output is not None:
+            group.create_dataset("raw_model_output", data=output.raw_model_output[batch_index])
         K = output.actions.shape[1]
         metadata = {
             "episode_id": self.episode_id, "request_id": output.request_id,
@@ -88,6 +90,7 @@ class EpisodeWriter:
             "executed_prefix": 0, "latency_seconds": latency_s,
             "synthetic": output.synthetic,
             "prediction_spec": output.prediction_spec,
+            "model_conversion": output.conversion_metadata,
             "transforms": [{"operation": "identity_native_actions", "frequency_conversion": None,
                             "coordinate_transform": None, "normalization": None},
                            {"operation": "clip_to_action_space",
@@ -217,7 +220,7 @@ class EpisodeWriter:
             "success_at_end": int(self.success_at_end), "return_env": self.return_env,
             "steps": self.steps, "steps_to_first_success": self.first_success,
             "time_to_first_success": self.first_success * dt if self.first_success else None,
-            "wall_seconds": time.perf_counter() - self.created,
+            "wall_seconds": self.metadata["elapsed_wall_seconds"],
             "write_seconds": self.write_seconds, "ending_reason": ending_reason,
             "trajectory": str(self.path.relative_to(self.run_dir)), "sha256": checksum,
             "bytes_written": self.path.stat().st_size,
@@ -250,6 +253,7 @@ class RunStore:
             self.manifest = manifest
             self.manifest.setdefault("episodes", [])
             self.manifest.setdefault("attempts", [])
+            self.manifest.setdefault("pending_attempts", [])
             self.manifest.setdefault("recovery", [])
             self.save()
 
@@ -279,10 +283,24 @@ class RunStore:
         for file in episode_dir.glob("*.tmp"):
             self._quarantine(file, "interrupted write")
         self.manifest["episodes"] = sorted(good, key=lambda r: r["episode_id"])
+        available = {row["episode_id"] for row in good}
+        for row in self.manifest["attempts"]:
+            if row["status"] == "complete" and row["episode_id"] not in available:
+                row.update({"status": "infrastructure_error", "error_type": "TrajectoryIntegrityError",
+                            "error": "Completed trajectory unavailable or invalid after recovery"})
+                with (self.path / "errors.jsonl").open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(jsonable(row), sort_keys=True) + "\n")
         recorded = {(r["episode_id"], r.get("attempt", 0)) for r in
                     self.manifest["attempts"] if r["status"] == "complete"}
         self.manifest["attempts"].extend(r for r in good if
                                        (r["episode_id"], r.get("attempt", 0)) not in recorded)
+        for row in list(self.manifest.get("pending_attempts", [])):
+            if row["episode_id"] not in available:
+                self.add_error({**row, "status": "infrastructure_error",
+                                "error_type": "InterruptedCollection",
+                                "error": "Process stopped before the episode was atomically committed",
+                                "steps": None})
+        self.manifest["pending_attempts"] = []
         self.manifest["recovery"].extend(self.quarantined)
         self.save()
 
@@ -301,10 +319,21 @@ class RunStore:
             raise ValueError("Duplicate completed episode ID")
         self.manifest["episodes"].append(row)
         self.manifest["attempts"].append(row)
+        self._remove_pending(row)
         self.save()
+
+    def start_attempts(self, rows):
+        self.manifest.setdefault("pending_attempts", []).extend(rows)
+        self.save()
+
+    def _remove_pending(self, row):
+        self.manifest["pending_attempts"] = [item for item in self.manifest.get("pending_attempts", [])
+                                            if (item["episode_id"], item["attempt"]) !=
+                                            (row["episode_id"], row["attempt"])]
 
     def add_error(self, record):
         self.manifest["attempts"].append(record)
+        self._remove_pending(record)
         with (self.path / "errors.jsonl").open("a", encoding="utf-8") as f:
             f.write(json.dumps(jsonable(record), sort_keys=True, allow_nan=False) + "\n")
         self.save()

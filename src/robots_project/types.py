@@ -61,7 +61,10 @@ class PolicyOutput:
     prediction_spec: dict | None = None
     policy_state: Any = None
     training_extras: dict | None = None
+    training_extra_spec: dict | None = None
     synthetic: bool = False
+    raw_model_output: np.ndarray | None = None
+    conversion_metadata: dict | None = None
 
 
 class PolicyAdapter(Protocol):

@@ -26,6 +26,16 @@ def main():
                         help="Controlled interruption for recovery acceptance; returns exit 3")
     args = parser.parse_args()
     config = load_env_config(args.config, num_envs=args.num_envs)
+    if args.policy == "replay":
+        if args.episodes != 1 or args.replay_path is None:
+            raise ValueError("Replay collection requires --episodes 1 and --replay-path; use replay_check for state restoration")
+        import h5py
+        import json
+        with h5py.File(args.replay_path, "r") as f:
+            source = json.loads(f.attrs["metadata_json"])
+        config.seed = source["seed"]
+        config.split = "replay"
+        config.seed_manifest = None
     run_dir = args.run_dir or Path("outputs") / f"{time.strftime('%Y%m%dT%H%M%S')}-{config.env_id}-{args.policy}"
     if (run_dir / "manifest.json").exists() and not args.resume:
         raise ValueError("Run exists; --resume is required to prevent accidental overwrites")

@@ -40,18 +40,21 @@ def episode_manifest(config, count):
 
 def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episodes=None,
             on_transition=None, replay_source=None):
-    from robots_project.policies.invoke import PolicyError, invoke
+    from robots_project.policies.invoke import PolicyError, PolicyTimeoutError, invoke
     if count < 1:
         raise ValueError("episodes must be positive")
     planned = episode_manifest(config, count)
     if config.termination == "evaluation" and count % config.num_envs:
         raise ValueError("Evaluation budget must be divisible by frozen num_envs; padding is forbidden")
-    identity = {"config": config.resolved(), "policy": policy.specs(), "planned": planned}
+    code_provenance = provenance(Path.cwd())
+    identity = {"config": config.resolved(), "policy": policy.specs(), "planned": planned,
+                "dependency_lock_sha256": code_provenance["dependency_lock_sha256"],
+                "source_file_sha256": code_provenance["source_file_sha256"]}
     identity_hash = hashlib.sha256(json.dumps(jsonable(identity), sort_keys=True).encode()).hexdigest()
     manifest = {"schema_version": "1.0", "run_id": run_dir.name,
                 "identity_hash": identity_hash, "planned_episodes": planned,
                 "env_specs": env.specs(), "policy_specs": policy.specs(),
-                "provenance": provenance(Path.cwd()), "complete": False}
+                "provenance": code_provenance, "complete": False}
     store = RunStore(run_dir, manifest)
     dump_yaml(run_dir / "config.resolved.yaml", config.resolved())
     from robots_project.utils import atomic_json
@@ -60,6 +63,8 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
     if store.completed_ids == {r["episode_id"] for r in planned}:
         store.manifest["complete"] = True
         store.save()
+        policy.close()
+        env.close()
         return store.manifest
     start = time.perf_counter()
     writers = {}
@@ -77,6 +82,16 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
         nonlocal reset_seconds
         ids = [r["episode_id"] for r in batch_records]
         seeds = [r["seed"] for r in batch_records]
+        # Record attempted identities before reset so reset/restore errors have episode-level evidence.
+        for slot, record in zip(slots, batch_records, strict=True):
+            current[slot] = record
+        attempts = {record["episode_id"]: sum(a["episode_id"] == record["episode_id"]
+                                             for a in store.manifest["attempts"])
+                    for record in batch_records}
+        store.start_attempts([{**record, "attempt": attempts[record["episode_id"]], "env_slot": slot,
+                               "status": "started", "synthetic": bool(env.specs()["synthetic"] or policy.specs()["synthetic"]),
+                               "policy_version": policy.specs()["policy_version"]}
+                              for slot, record in zip(slots, batch_records, strict=True)])
         reset_start = time.perf_counter()
         observation = env.reset(slots, ids, seeds)
         if replay_source is not None:
@@ -87,7 +102,7 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
         policy.reset(slots, ids)
         for slot, record in zip(slots, batch_records, strict=True):
             current[slot] = record
-            attempt = sum(r["episode_id"] == record["episode_id"] for r in store.manifest["attempts"])
+            attempt = attempts[record["episode_id"]]
             metadata = {**record, "env_slot": slot, "run_id": run_dir.name,
                         "attempt": attempt, "policy_version": policy.specs()["policy_version"],
                         "env_specs": env.specs(), "policy_specs": policy.specs(),
@@ -122,6 +137,12 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
     # Restrict partial-batch recovery to a full restart rather than changing initial conditions.
     if config.termination == "evaluation" and len(pending) % config.num_envs:
         raise ValueError("Partial evaluation batch requires a new run; frozen batch order cannot change")
+    if config.termination == "evaluation":
+        for offset in range(0, len(planned), config.num_envs):
+            batch = planned[offset:offset + config.num_envs]
+            done_count = sum(r["episode_id"] in store.completed_ids for r in batch)
+            if done_count not in (0, config.num_envs):
+                raise ValueError("Partial evaluation batch requires a new run; original slot assignment is frozen")
     try:
         first = pending[:config.num_envs]
         pending = pending[len(first):]
@@ -141,7 +162,10 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
                                          env.action_spec, config.policy_timeout_s)
                 latencies.append(latency)
                 # Controls already use native units. Real-model normalization belongs in a confirmed adapter.
-                denormalized = output.actions.astype(np.float32)
+                with np.errstate(over="ignore", invalid="ignore"):
+                    denormalized = output.actions.astype(np.float32)
+                if not np.isfinite(denormalized).all():
+                    raise PolicyError("Native action conversion produced non-finite float32 values")
                 planned_actions = np.clip(denormalized, env.action_spec.low, env.action_spec.high)
                 clip_mask = planned_actions != denormalized
                 for i, slot in enumerate(needs):
@@ -193,15 +217,18 @@ def collect(env, policy, config, run_dir: Path, count: int, *, pause_after_episo
                 observation = begin_batch(records, slots)
     except (Exception, KeyboardInterrupt) as error:
         failed = True
-        policy_failed = isinstance(error, PolicyError)
-        for slot, writer in list(writers.items()):
-            writer.abort()
-            record = current[slot]
-            store.add_error({**record, "attempt": writer.metadata["attempt"], "env_slot": slot,
+        policy_failed = isinstance(error, PolicyTimeoutError)
+        for slot, record in list(current.items()):
+            writer = writers.get(slot)
+            if writer is not None:
+                writer.abort()
+            attempt = writer.metadata["attempt"] if writer else sum(
+                a["episode_id"] == record["episode_id"] for a in store.manifest["attempts"])
+            store.add_error({**record, "attempt": attempt, "env_slot": slot,
                              "status": "infrastructure_error", "error_type": type(error).__name__,
-                             "error": str(error), "steps": writer.steps,
+                             "error": str(error), "steps": writer.steps if writer else 0,
                              "traceback": traceback.format_exc(),
-                             "synthetic": writer.metadata["synthetic"],
+                             "synthetic": bool(env.specs()["synthetic"] or policy.specs()["synthetic"]),
                              "policy_version": policy.specs()["policy_version"]})
         print(f"Collection failed: {type(error).__name__}: {error}")
     finally:

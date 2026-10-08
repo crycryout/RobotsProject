@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import time
 from typing import Any
 
@@ -75,11 +76,18 @@ def provenance(root: Path, checkpoint: Path | None = None) -> dict:
             versions[package] = importlib.metadata.version(package)
         except importlib.metadata.PackageNotFoundError:
             versions[package] = None
+    source_files = {str(p.relative_to(root)): sha256_file(p) for p in
+                    sorted((root / "src/robots_project").rglob("*.py"))}
+    alternate_lock = root / "environments/control/uv.lock"
+    using_control = ".venv-control" in sys.executable
+    active_lock = alternate_lock if using_control else root / "uv.lock"
     return {
         "created_at_unix": time.time(),
         "code_commit": command_output(["git", "-C", str(root), "rev-parse", "HEAD"]).get("stdout"),
         "code_dirty": bool(command_output(["git", "-C", str(root), "status", "--porcelain"]).get("stdout")),
-        "dependency_lock_sha256": sha256_file(root / "uv.lock") if (root / "uv.lock").exists() else None,
+        "dependency_lock_sha256": sha256_file(active_lock) if active_lock.exists() else None,
+        "dependency_lock_path": str(active_lock.relative_to(root)),
+        "source_file_sha256": source_files,
         "versions": versions,
         "checkpoint_sha256": sha256_file(checkpoint) if checkpoint else None,
         "checkpoint_revision": None,

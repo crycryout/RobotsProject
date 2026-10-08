@@ -16,7 +16,7 @@ Seeds alone do not guarantee matched states when batch count, ordering or reconf
 
 ## Counts, errors and uncertainty
 
-`episodes.csv` records every attempted episode, including infrastructure failures. The default retry limit is zero; any increase must precede the experiment. Timeouts, malformed outputs and simulator/write failures stop the run and remain auditable. Resuming an interrupted write retains completed episodes and quarantines partial files. Attempts are never retried until success.
+`episodes.csv` records every attempted episode, including infrastructure failures. Starts are journaled before reset so even a native crash or external process termination becomes an interrupted attempt during recovery. The default retry limit is zero; any increase must precede the experiment. Timeouts, malformed outputs and simulator/write failures stop the run and remain auditable. Resuming an interrupted write retains completed episodes, quarantines partial files and preserves failed attempts in the denominator. Attempts are never retried until success.
 
 The summary reports intended, attempted, completed and missing counts. Success counts and Wilson 95% intervals use completed episodes; conservative rates use the full intended budget and count missing episodes as failures. An incomplete run is explicitly incomplete. Error rate is failed infrastructure attempts divided by all recorded attempts.
 

@@ -1,0 +1,84 @@
+{
+  "action_spec_id": "maniskill:85b57e6ca44b0df43636",
+  "actions": [
+    [
+      [
+        -0.9539902210235596,
+        -0.4500940442085266,
+        -0.6340934038162231,
+        -0.010810064151883125,
+        -0.46026381850242615,
+        0.4294077157974243,
+        0.5360954403877258,
+        0.2073640376329422
+      ],
+      [
+        0.036522410809993744,
+        -0.23247522115707397,
+        -0.24156884849071503,
+        0.0874691903591156,
+        -0.8601939082145691,
+        -0.2577686309814453,
+        -0.05679072067141533,
+        0.007428355515003204
+      ],
+      [
+        -0.34442636370658875,
+        -0.5036993026733398,
+        -0.7791764736175537,
+        -0.518266499042511,
+        -0.8994296193122864,
+        0.5961672067642212,
+        -0.28595292568206787,
+        -0.8427963852882385
+      ],
+      [
+        -0.03849104419350624,
+        0.42585489153862,
+        -0.06322848796844482,
+        -0.9663525223731995,
+        -0.44997304677963257,
+        0.43310290575027466,
+        0.059197861701250076,
+        0.037161897867918015
+      ]
+    ]
+  ],
+  "actions_shape": [
+    1,
+    4,
+    8
+  ],
+  "policy_version": "mock-wam-synthetic-v1",
+  "prediction_offset_steps": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "prediction_offset_times": [
+    0.05,
+    0.1,
+    0.15000000000000002,
+    0.2
+  ],
+  "prediction_spec": {
+    "includes_current_frame": false,
+    "preprocessing_version": "sensor-native-rgb-u8-v1",
+    "representation": "rgb",
+    "synthetic": true
+  },
+  "purpose": "Interface-only example; never a WAM result",
+  "real_model_parameters": "UNKNOWN",
+  "request_id": "03578afb-1cdc-41a8-8fbd-3647ed6930f9",
+  "rgb_reference": "outputs/p5-mock-fixture/episodes/smoke-PushCube-v1-37000.h5::requests/03578afb-1cdc-41a8-8fbd-3647ed6930f9/prediction/rgb/base_camera",
+  "schema_version": "1.0",
+  "synthetic": true,
+  "training_extras": null,
+  "validity": [
+    true,
+    true,
+    false,
+    false
+  ]
+}
