@@ -100,6 +100,6 @@ Final correctness checks exited 0: **29 tests passed in 1.35 seconds**, and Ruff
 | RL algorithm, probability/gradient semantics and checkpoints | UNKNOWN / NOT_RUN | Actual updates, task-only and alignment-RL checkpoints |
 | Final experiments, generalization and course deliverables | NOT_RUN | Frozen comparisons and the instructor's supplied rubric |
 
-Implementation is on local branch `implement/simulation-rollout-evaluation`, with phase commits. No remote push has been performed. Raw trajectories, weights, asset caches and large videos remain gitignored. [deviations.md](deviations.md) records implementation choices and compatibility work.
+The implementation and compact measured results are versioned on branch [`implement/simulation-rollout-evaluation`](https://github.com/crycryout/RobotsProject/tree/implement/simulation-rollout-evaluation), with phase commits. Raw trajectories, weights, asset caches and large videos remain gitignored. [deviations.md](deviations.md) records implementation choices and compatibility work.
 
 Next action (under two minutes): open [INTERFACE_CONTRACT.md](INTERFACE_CONTRACT.md) and identify the model action-confirmation and training-owner fields needed to start P6.
