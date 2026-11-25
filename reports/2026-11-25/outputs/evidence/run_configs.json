@@ -1,0 +1,364 @@
+{
+  "v2_AA_01": {
+    "source": "training/runs/v2_AA_01/config.json",
+    "source_sha256": "1a66d59e0d7ef033605783d093709ac8958097861d563119044eca8385ecb78a",
+    "gpu_field_note": "Published redacted strings replaced with two local CUDA ordinals for this readable copy only. Historical UUIDs unknown. Source bytes retained.",
+    "configuration": {
+      "arm": "AA",
+      "gpus": [
+        "0",
+        "1"
+      ],
+      "policy_ports": [
+        18711,
+        18712
+      ],
+      "actor_store_port": 18720,
+      "actor_vllm_ports": [
+        18721,
+        18722
+      ],
+      "num_envs": 12,
+      "init_pose_noise": "0.1",
+      "seed": 20261123,
+      "candidates": [
+        "BananaInBowlTask",
+        "BananaOnPlateTask",
+        "RubiksCubeTask",
+        "YogurtInBowlTask",
+        "ThrowAwayAppleTask",
+        "MustardInLeftBinTask",
+        "MustardInRightBinTask",
+        "BowlInBinTask",
+        "CannedFoodInBinTask",
+        "CoffeePotInBinTask",
+        "ClampInRightBinTask",
+        "FoodPacking1BoxesTask",
+        "FoodPacking1CansTask",
+        "FruitsOnionTask",
+        "WoodSpatulaToBowlTask",
+        "PinkSpoonInPotTask",
+        "CookingPickPastaToolTask",
+        "MarkerInMugTask",
+        "SauceBottlesCrateTask",
+        "LargerObjectRaisinBoxInBinTask",
+        "SmallerObjectButterInBinTask",
+        "FruitsOnionToPlateTask",
+        "MouseOnKeyboardTask",
+        "ButterAboveRaisinTask",
+        "MustardAboveRaisinTask",
+        "PutBowlOnShelfTopTask"
+      ],
+      "selection": {
+        "min_held": 3,
+        "max_success": 9,
+        "retention_min_success": 10
+      },
+      "max_train_tasks": 6,
+      "batches_per_collection": 4,
+      "batch_timeout_s": 7200,
+      "gamma": 0.95,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "batch_chunks": 16,
+      "beta": 0.1,
+      "reference_weight": 0.01,
+      "judge": false,
+      "judge_sample_fraction": 0.1,
+      "judge_gpu_memory_utilization": 0.15,
+      "train_hours": 999,
+      "max_epochs": 3,
+      "scratch": "/var/tmp/vis_rl/v2_AA_01",
+      "min_free_gib": 20,
+      "start": "train",
+      "selected": [
+        "FruitsOnionTask",
+        "SmallerObjectButterInBinTask",
+        "BowlInBinTask",
+        "ButterAboveRaisinTask",
+        "MustardInRightBinTask",
+        "MustardInLeftBinTask"
+      ],
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "real16": true,
+      "alignment": true,
+      "alignment_bound": 0.2,
+      "passes": 1,
+      "alignment_weight": 0.1,
+      "alignment_form": "additive_probability"
+    }
+  },
+  "v2_AV_01": {
+    "source": "training/runs/v2_AV_01/config.json",
+    "source_sha256": "1fc439df0cb70bab9756b9ac8f8dc42ef5319edbaa94e29967fb4eb5e7a555be",
+    "gpu_field_note": "Published redacted strings replaced with two local CUDA ordinals for this readable copy only. Historical UUIDs unknown. Source bytes retained.",
+    "configuration": {
+      "arm": "AV",
+      "gpus": [
+        "0",
+        "1"
+      ],
+      "policy_ports": [
+        18711,
+        18712
+      ],
+      "actor_store_port": 18720,
+      "actor_vllm_ports": [
+        18721,
+        18722
+      ],
+      "num_envs": 12,
+      "init_pose_noise": "0.1",
+      "seed": 20261123,
+      "candidates": [
+        "BananaInBowlTask",
+        "BananaOnPlateTask",
+        "RubiksCubeTask",
+        "YogurtInBowlTask",
+        "ThrowAwayAppleTask",
+        "MustardInLeftBinTask",
+        "MustardInRightBinTask",
+        "BowlInBinTask",
+        "CannedFoodInBinTask",
+        "CoffeePotInBinTask",
+        "ClampInRightBinTask",
+        "FoodPacking1BoxesTask",
+        "FoodPacking1CansTask",
+        "FruitsOnionTask",
+        "WoodSpatulaToBowlTask",
+        "PinkSpoonInPotTask",
+        "CookingPickPastaToolTask",
+        "MarkerInMugTask",
+        "SauceBottlesCrateTask",
+        "LargerObjectRaisinBoxInBinTask",
+        "SmallerObjectButterInBinTask",
+        "FruitsOnionToPlateTask",
+        "MouseOnKeyboardTask",
+        "ButterAboveRaisinTask",
+        "MustardAboveRaisinTask",
+        "PutBowlOnShelfTopTask"
+      ],
+      "selection": {
+        "min_held": 3,
+        "max_success": 9,
+        "retention_min_success": 10
+      },
+      "max_train_tasks": 6,
+      "batches_per_collection": 4,
+      "batch_timeout_s": 7200,
+      "gamma": 0.95,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "batch_chunks": 16,
+      "beta": 0.1,
+      "reference_weight": 0.01,
+      "judge": false,
+      "judge_sample_fraction": 0.1,
+      "judge_gpu_memory_utilization": 0.15,
+      "train_hours": 999,
+      "max_epochs": 3,
+      "scratch": "/var/tmp/vis_rl/v2_AV_01",
+      "min_free_gib": 20,
+      "start": "train",
+      "selected": [
+        "FruitsOnionTask",
+        "SmallerObjectButterInBinTask",
+        "BowlInBinTask",
+        "ButterAboveRaisinTask",
+        "MustardInRightBinTask",
+        "MustardInLeftBinTask"
+      ],
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "real16": true,
+      "alignment": true,
+      "alignment_bound": 0.2,
+      "passes": 1
+    }
+  },
+  "v2_T_01": {
+    "source": "training/runs/v2_T_01/config.json",
+    "source_sha256": "cec56c544db6def79e4f2a6d58ef4af4ffb809673da8b5d8b984a30b0f21c3de",
+    "gpu_field_note": "Published redacted strings replaced with two local CUDA ordinals for this readable copy only. Historical UUIDs unknown. Source bytes retained.",
+    "configuration": {
+      "arm": "T",
+      "gpus": [
+        "0",
+        "1"
+      ],
+      "policy_ports": [
+        18711,
+        18712
+      ],
+      "actor_store_port": 18720,
+      "actor_vllm_ports": [
+        18721,
+        18722
+      ],
+      "num_envs": 12,
+      "init_pose_noise": "0.1",
+      "seed": 20261123,
+      "candidates": [
+        "BananaInBowlTask",
+        "BananaOnPlateTask",
+        "RubiksCubeTask",
+        "YogurtInBowlTask",
+        "ThrowAwayAppleTask",
+        "MustardInLeftBinTask",
+        "MustardInRightBinTask",
+        "BowlInBinTask",
+        "CannedFoodInBinTask",
+        "CoffeePotInBinTask",
+        "ClampInRightBinTask",
+        "FoodPacking1BoxesTask",
+        "FoodPacking1CansTask",
+        "FruitsOnionTask",
+        "WoodSpatulaToBowlTask",
+        "PinkSpoonInPotTask",
+        "CookingPickPastaToolTask",
+        "MarkerInMugTask",
+        "SauceBottlesCrateTask",
+        "LargerObjectRaisinBoxInBinTask",
+        "SmallerObjectButterInBinTask",
+        "FruitsOnionToPlateTask",
+        "MouseOnKeyboardTask",
+        "ButterAboveRaisinTask",
+        "MustardAboveRaisinTask",
+        "PutBowlOnShelfTopTask"
+      ],
+      "selection": {
+        "min_held": 3,
+        "max_success": 9,
+        "retention_min_success": 10
+      },
+      "max_train_tasks": 6,
+      "batches_per_collection": 4,
+      "batch_timeout_s": 7200,
+      "gamma": 0.95,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "batch_chunks": 16,
+      "beta": 0.1,
+      "reference_weight": 0.01,
+      "judge": false,
+      "judge_sample_fraction": 0.1,
+      "judge_gpu_memory_utilization": 0.15,
+      "train_hours": 999,
+      "max_epochs": 3,
+      "scratch": "/var/tmp/vis_rl/v2_T_01",
+      "min_free_gib": 20,
+      "start": "train",
+      "selected": [
+        "FruitsOnionTask",
+        "SmallerObjectButterInBinTask",
+        "BowlInBinTask",
+        "ButterAboveRaisinTask",
+        "MustardInRightBinTask",
+        "MustardInLeftBinTask"
+      ],
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "real16": true,
+      "alignment": true,
+      "alignment_bound": 0.2,
+      "passes": 1
+    }
+  }
+}

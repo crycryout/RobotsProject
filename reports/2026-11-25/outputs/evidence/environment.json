@@ -1,0 +1,41 @@
+{
+  "checked_local": "2026-11-25T13:34:33+08:00",
+  "host": "stluo-gpu03",
+  "account": "renjie",
+  "git_identity_verified": "renjiecai1212",
+  "repository_head": "b82302e83f8d999e8cc2031a619b5ea6255dc192",
+  "branch": "main",
+  "accessible_shared_refs": {
+    "RoboLab": "dc3383888b7279b4256312268a35a5f9046c44d3",
+    "cosmos-framework": "afd7d4c4087a8929c84523ff60172642fd11690b"
+  },
+  "analysis_python": "3.10.12",
+  "analysis_packages": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pandas": "2.3.3",
+    "pyarrow": "25.0.1",
+    "h5py": "3.14.0",
+    "matplotlib": "3.10.9",
+    "Pillow": "12.3.0",
+    "reportlab": "4.5.1",
+    "python-pptx": "1.0.2"
+  },
+  "sim_python": "/home/robot_share/RoboLab/.venv/bin/python",
+  "sim_runtime": {
+    "python": "3.11.15",
+    "torch": "2.7.0+cu128",
+    "isaacsim": "5.0.0.0",
+    "isaaclab": "2.2.0"
+  },
+  "gpu": "0, NVIDIA H800 PCIe, 81559 MiB, 580.178.04\n1, NVIDIA H800 PCIe, 81559 MiB, 580.178.04",
+  "read_only_ssh_checks": {
+    "gpu01": "renjie UID 1011, docker, RTX 5090",
+    "gpu02": "renjie UID 1002, users/docker, RTX 5090",
+    "thor": "renjie UID 2002, users/docker, Thor"
+  },
+  "screening_search": "Shared archive recovered and verified by renjie. The private source remained inaccessible directly. The archived default cohort comprises 26 tasks and 312 episodes. The 10 planned tasks yield 120 matched keys across four policies.",
+  "full_new_eval_dependencies": "Public checkout omits dream_eval and actual v2 heads.pt. The standard renjie model cache has no readable pinned base snapshot. Shared Base screening episodes and existing e03c1 scratch data complete the evaluation.",
+  "screening_archive_verified_local": "2026-11-25T15:47:25+08:00",
+  "screening_archive": "/home/robot_share/screen_base/screening_base_20261123"
+}

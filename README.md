@@ -2,7 +2,11 @@
 
 Robotics course final project: RL Post-Training for World-Action Models.
 
-This repository currently provides the execution plan for the **simulation, rollout infrastructure, and evaluation** workstream. It does not yet contain a completed implementation or H800 experiment results.
+## Course presentation · 25 November 2026
+
+The simulation, rollout infrastructure, and evaluation report is available on this branch. [Five-slide PowerPoint](reports/2026-11-25/outputs/汇报.pptx) · [Slides PDF](reports/2026-11-25/outputs/汇报.pdf) · [Speaker notes and Q&A](reports/2026-11-25/outputs/讲稿与问答.md)
+
+The dated report includes the verified episode counts, training curves, example videos, evaluation patch, and reproduction commands. [Report and evidence](reports/2026-11-25/README.md) · [Download the complete package](reports/2026-11-25/outputs/汇报资料包.zip)
 
 ## Start Here
 
@@ -27,8 +31,8 @@ Read README.md and docs/EXECUTION_PLAN.md. Follow the execution prompt in Sectio
 - **Action dimensions do not establish semantic compatibility.** Confirm coordinate frames, units, normalization, and control frequency before connecting DROID outputs to another controller.
 - **The complete course rubric has not been supplied.** This plan follows the proposal's responsibility split; it does not establish completion of the whole team project.
 
-Technical references and limitations are in Sections 1 and 14 of the plan. The original proposal PDF, model weights, and experiment datasets are not uploaded to this public repository.
+Technical references and limitations are in Sections 1 and 14 of the plan. The dated report includes the evaluation records and training counters used for its figures. The original proposal PDF and model weights remain in their upstream locations.
 
 ## Documentation Convention
 
-Use English for authored documentation, comments, status reports, and handoff text. Use neutral filenames and role-based descriptions without personal names.
+Repository documentation uses English and role-based descriptions. The classroom materials are available in their original Chinese.

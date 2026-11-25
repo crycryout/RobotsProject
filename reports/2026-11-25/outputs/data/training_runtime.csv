@@ -1,0 +1,4 @@
+﻿model,training_seed,epochs,episodes,success,cumulative_env_steps,train_started_unix,done_unix,start_beijing,finish_beijing,elapsed_seconds,elapsed_hms,state_source,status_source
+T′,20261123,1–3,288,144,130509,1795516112.282656,1795534982.2608159,2026-11-24T18:28:32.282+08:00,2026-11-24T23:43:02.260+08:00,18869.978,5:14:30,repo/training/runs/v2_T_01/state.json,repo/training/runs/v2_T_01/status.json
+A-video,20261123,1–3,288,147,127130,1795470388.05274,1795493093.0798151,2026-11-24T05:46:28.052+08:00,2026-11-24T12:04:53.079+08:00,22705.027,6:18:25,repo/training/runs/v2_AV_01/state.json,repo/training/runs/v2_AV_01/status.json
+A-action,20261123,1–3,288,125,132048,1795493109.1318204,1795516095.9625285,2026-11-24T12:05:09.131+08:00,2026-11-24T18:28:15.962+08:00,22986.831,6:23:07,repo/training/runs/v2_AA_01/state.json,repo/training/runs/v2_AA_01/status.json

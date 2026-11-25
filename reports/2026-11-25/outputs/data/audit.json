@@ -1,0 +1,368 @@
+{
+  "versions": {
+    "T′": "a00618a78f38facd956fbf7332c999d0460add9891d149e9db27eeba7e46e08e",
+    "A-video": "354cc3f87d84339dd455ad1c9dc95f514627af59584e388368aefe60fac81e3a",
+    "A-action": "88ea3e1a12cd3adb937de1093e4f0c59921f5217c3f1fae1e3a784b387e2ee82"
+  },
+  "configs": {
+    "T′": {
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "num_envs": 12,
+      "seed": 20261123,
+      "init_pose_noise": "0.1",
+      "arm": "T",
+      "gamma": 0.95,
+      "passes": 1,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "beta": 0.1,
+      "real16": true,
+      "alignment_bound": 0.2,
+      "max_epochs": 3
+    },
+    "A-video": {
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "num_envs": 12,
+      "seed": 20261123,
+      "init_pose_noise": "0.1",
+      "arm": "AV",
+      "gamma": 0.95,
+      "passes": 1,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "beta": 0.1,
+      "real16": true,
+      "alignment_bound": 0.2,
+      "max_epochs": 3
+    },
+    "A-action": {
+      "pairs": [
+        [
+          "BowlInBinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "default"
+        ],
+        [
+          "ButterAboveRaisinTask",
+          "specific"
+        ],
+        [
+          "FruitsOnionTask",
+          "default"
+        ],
+        [
+          "FruitsOnionTask",
+          "specific"
+        ],
+        [
+          "MustardInLeftBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "default"
+        ],
+        [
+          "SmallerObjectButterInBinTask",
+          "specific"
+        ]
+      ],
+      "num_envs": 12,
+      "seed": 20261123,
+      "init_pose_noise": "0.1",
+      "arm": "AA",
+      "gamma": 0.95,
+      "passes": 1,
+      "lora_rank": 16,
+      "learning_rate": 0.0001,
+      "beta": 0.1,
+      "real16": true,
+      "alignment_bound": 0.2,
+      "max_epochs": 3
+    }
+  },
+  "fixed_layouts": 120,
+  "tasks": [
+    "BananaInBowlTask",
+    "BananaOnPlateTask",
+    "ClampInRightBinTask",
+    "CoffeePotInBinTask",
+    "FoodPacking1BoxesTask",
+    "FoodPacking1CansTask",
+    "FruitsOnionToPlateTask",
+    "PutBowlOnShelfTopTask",
+    "RubiksCubeTask",
+    "SauceBottlesCrateTask"
+  ],
+  "epochs": [
+    {
+      "model": "T′",
+      "epoch": 1,
+      "success": 48,
+      "episodes": 96
+    },
+    {
+      "model": "T′",
+      "epoch": 2,
+      "success": 53,
+      "episodes": 96
+    },
+    {
+      "model": "T′",
+      "epoch": 3,
+      "success": 43,
+      "episodes": 96
+    },
+    {
+      "model": "A-video",
+      "epoch": 1,
+      "success": 48,
+      "episodes": 96
+    },
+    {
+      "model": "A-video",
+      "epoch": 2,
+      "success": 48,
+      "episodes": 96
+    },
+    {
+      "model": "A-video",
+      "epoch": 3,
+      "success": 51,
+      "episodes": 96
+    },
+    {
+      "model": "A-action",
+      "epoch": 1,
+      "success": 40,
+      "episodes": 96
+    },
+    {
+      "model": "A-action",
+      "epoch": 2,
+      "success": 41,
+      "episodes": 96
+    },
+    {
+      "model": "A-action",
+      "epoch": 3,
+      "success": 44,
+      "episodes": 96
+    }
+  ],
+  "totals": [
+    {
+      "dataset": "training_rollout",
+      "model": "Base",
+      "success": "",
+      "episodes": "",
+      "success_pct": "",
+      "delta_vs_T_pp": "",
+      "delta_vs_base_pp": "",
+      "status": "not_applicable"
+    },
+    {
+      "dataset": "training_rollout",
+      "model": "T′",
+      "success": 144,
+      "episodes": 288,
+      "success_pct": 50.0,
+      "delta_vs_T_pp": 0.0,
+      "delta_vs_base_pp": "",
+      "status": "verified"
+    },
+    {
+      "dataset": "training_rollout",
+      "model": "A-video",
+      "success": 147,
+      "episodes": 288,
+      "success_pct": 51.041667,
+      "delta_vs_T_pp": 1.041667,
+      "delta_vs_base_pp": "",
+      "status": "verified"
+    },
+    {
+      "dataset": "training_rollout",
+      "model": "A-action",
+      "success": 125,
+      "episodes": 288,
+      "success_pct": 43.402778,
+      "delta_vs_T_pp": -6.597222,
+      "delta_vs_base_pp": "",
+      "status": "verified"
+    },
+    {
+      "dataset": "untrained_task_eval",
+      "model": "Base",
+      "success": 51,
+      "episodes": 120,
+      "success_pct": 42.5,
+      "delta_vs_T_pp": 0.0,
+      "delta_vs_base_pp": 0.0,
+      "status": "verified"
+    },
+    {
+      "dataset": "untrained_task_eval",
+      "model": "T′",
+      "success": 51,
+      "episodes": 120,
+      "success_pct": 42.5,
+      "delta_vs_T_pp": 0.0,
+      "delta_vs_base_pp": 0.0,
+      "status": "verified"
+    },
+    {
+      "dataset": "untrained_task_eval",
+      "model": "A-video",
+      "success": 48,
+      "episodes": 120,
+      "success_pct": 40.0,
+      "delta_vs_T_pp": -2.5,
+      "delta_vs_base_pp": -2.5,
+      "status": "verified"
+    },
+    {
+      "dataset": "untrained_task_eval",
+      "model": "A-action",
+      "success": 51,
+      "episodes": 120,
+      "success_pct": 42.5,
+      "delta_vs_T_pp": 0.0,
+      "delta_vs_base_pp": 0.0,
+      "status": "verified"
+    }
+  ],
+  "paired": [
+    {
+      "model": "A-video",
+      "reference": "T′",
+      "pairs": 120,
+      "win": 5,
+      "loss": 8,
+      "tie": 107,
+      "delta_pp": -2.5,
+      "ci_low_pp": -8.333333,
+      "ci_high_pp": 3.333333,
+      "exact_mcnemar_p": 0.5810546875
+    },
+    {
+      "model": "A-action",
+      "reference": "T′",
+      "pairs": 120,
+      "win": 7,
+      "loss": 7,
+      "tie": 106,
+      "delta_pp": 0.0,
+      "ci_low_pp": -5.833333,
+      "ci_high_pp": 5.833333,
+      "exact_mcnemar_p": 1.0
+    },
+    {
+      "model": "T′",
+      "reference": "Base",
+      "pairs": 120,
+      "win": 9,
+      "loss": 9,
+      "tie": 102,
+      "delta_pp": 0.0,
+      "ci_low_pp": -6.666667,
+      "ci_high_pp": 6.666667,
+      "exact_mcnemar_p": 1.0
+    },
+    {
+      "model": "A-video",
+      "reference": "Base",
+      "pairs": 120,
+      "win": 5,
+      "loss": 8,
+      "tie": 107,
+      "delta_pp": -2.5,
+      "ci_low_pp": -8.333333,
+      "ci_high_pp": 3.333333,
+      "exact_mcnemar_p": 0.5810546875
+    },
+    {
+      "model": "A-action",
+      "reference": "Base",
+      "pairs": 120,
+      "win": 9,
+      "loss": 9,
+      "tie": 102,
+      "delta_pp": 0.0,
+      "ci_low_pp": -6.666667,
+      "ci_high_pp": 6.666667,
+      "exact_mcnemar_p": 1.0
+    }
+  ],
+  "checked_eval_chunks": 7070,
+  "source_zip_sha256": "8d3bb067b560e10be4f9d983eda2d9ac7cbebb8eab6d7c3fe999d637cf96bf76"
+}

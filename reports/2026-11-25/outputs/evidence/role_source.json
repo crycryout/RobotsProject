@@ -1,0 +1,6 @@
+{
+  "title": "RL WAM",
+  "section": "Milestones and Responsibilities",
+  "scope": "给定提案未写明汇报必须使用英语",
+  "responsibilities": "Responsibilities will be divided into three tracks: Cai Renjie will focus on simulation environments, rollout infrastructure, and evaluation; Wang Junchang will focus on WAM integration, state-prediction alignment, and reward design; and Wang Shaohang will focus on experiment management, and ablation analysis. All members will jointly contribute to final interpretation and reporting."
+}

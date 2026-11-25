@@ -1,0 +1,41 @@
+{
+  "archive_path": "/home/robot_share/screen_base/screening_base_20261123",
+  "snapshot_sha256": "8edfee6e38ac21cef81caca264745dc1223d970289d55a84c34269d584a2b72b",
+  "default_tasks": 26,
+  "default_episodes": 312,
+  "exact_shared_columns": [
+    "task",
+    "level",
+    "seed",
+    "env",
+    "policy_version",
+    "success",
+    "steps",
+    "final_p",
+    "ever_held",
+    "time_to_first_hold",
+    "grasps",
+    "drops",
+    "wrong_grab_events",
+    "wrong_held_boundaries",
+    "return_0"
+  ],
+  "selected_tasks": [
+    "BananaInBowlTask",
+    "BananaOnPlateTask",
+    "ClampInRightBinTask",
+    "CoffeePotInBinTask",
+    "FoodPacking1BoxesTask",
+    "FoodPacking1CansTask",
+    "FruitsOnionToPlateTask",
+    "PutBowlOnShelfTopTask",
+    "RubiksCubeTask",
+    "SauceBottlesCrateTask"
+  ],
+  "selected_episodes": 120,
+  "selected_successes": 51,
+  "selected_failures": 69,
+  "four_policy_keys": 120,
+  "base_raw_initial_states_available": false,
+  "base_raw_initial_states_source": "archive README, Origin"
+}

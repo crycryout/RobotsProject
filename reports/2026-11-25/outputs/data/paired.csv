@@ -1,0 +1,6 @@
+﻿model,reference,pairs,win,loss,tie,delta_pp,ci_low_pp,ci_high_pp,exact_mcnemar_p,v2_training_seed,training_seeds_per_v2_arm,evaluation_tasks,evaluation_instruction,official_test_split_evaluated,initial_state_evidence
+A-video,T′,120,5,8,107,-2.5,-8.333333,3.333333,0.5810546875,20261123,1,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+A-action,T′,120,7,7,106,0.0,-5.833333,5.833333,1.0,20261123,1,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+T′,Base,120,9,9,102,0.0,-6.666667,6.666667,1.0,20261123,1,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+A-video,Base,120,5,8,107,-2.5,-8.333333,3.333333,0.5810546875,20261123,1,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+A-action,Base,120,9,9,102,0.0,-6.666667,6.666667,1.0,20261123,1,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only

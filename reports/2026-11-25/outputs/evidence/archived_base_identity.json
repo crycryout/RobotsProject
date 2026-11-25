@@ -1,0 +1,6 @@
+{
+  "source": "/home/robot_share/task_sweep/logs/vllm_server_8000.log",
+  "source_sha256": "d2865852998cabdba188eafee122b4c2df8b20e01de0b63928fe84ea3e455aa8",
+  "archived_startup_line": "(APIServer pid=801239) INFO 11-20 00:34:11 [startup.py:38] vLLM server version 0.33.0, serving model /home/junchang/hf_cache/models--nvidia--Cosmos3-Edge-Policy-DROID/snapshots/68b17b3c959ccd0999de9a972c5f7c8b57112f86",
+  "role": "历史筛选基础设施的版本旁证，单独演示使用相同的公开权重版本。"
+}

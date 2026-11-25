@@ -1,0 +1,17 @@
+{
+  "source_doc": "train_v2.md §1",
+  "source_text": "| No transfer, no forgetting | 10 untrained tasks, `e02c2` vs base: Δsuccess −0.008 [−0.067, +0.050] (n = 120). |",
+  "older_checkpoint": "v1 e02c2",
+  "v1_policy_version": "261fd2059fda3d77299c25dbca68d2db5254e58e52b8492ec64d951e2936ef00",
+  "v1_success": 50,
+  "n": 120,
+  "published_v1_minus_base": -0.008,
+  "implied_base_success": 51,
+  "matched_initial_layouts": 120,
+  "evidence_level": "Direct frozen-base episode outcomes agree with the separate historical aggregate.",
+  "direct_base_success": 51,
+  "matched_screening_keys": 120,
+  "v1_only_wins": 6,
+  "base_only_wins": 7,
+  "matched_initial_layouts_scope": "v1 e02c2 versus v2 T-prime HDF5; screening pairs are verified by keys."
+}

@@ -1,0 +1,4 @@
+2026-11-21 pilot pilot_success.mp4 YogurtInBowlTask 3 159
+2026-11-21 pilot pilot_timeout.mp4 YogurtInBowlTask 0 600
+e03c1 T′ keyframes eval_T_success.mp4 BananaOnPlateTask 0 150
+e03c1 T′ keyframes eval_T_timeout.mp4 BananaOnPlateTask 5 600

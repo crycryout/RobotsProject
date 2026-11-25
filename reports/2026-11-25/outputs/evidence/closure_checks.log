@@ -1,0 +1,23 @@
+2026-11-25T20:24:58+08:00
+b82302e83f8d999e8cc2031a619b5ea6255dc192
+Three-file evaluation patch matches the working diff and applies cleanly to the recorded Git revision.
+----------------------------------------------------------------------
+Ran 13 tests in 0.326s
+
+OK
+T′: 144/288, 130,509 env steps, 5:14:30 wall time
+A-video: 147/288, 127,130 env steps, 6:18:25 wall time
+A-action: 125/288, 132,048 env steps, 6:23:07 wall time
+OK: 864 training rows, 480 evaluation rows, 120 aligned keys; raw counts and paired intervals agree.
+All five PowerPoint slides have the stated scope and speaker notes; the cumulative-env-steps plot is embedded.
+Verified two archival original videos and two sampled-frame replays against manifest hashes.
+汇报
+Pages:           5
+Page size:       960 x 540 pts
+结果表
+Pages:           1
+Page size:       595.276 x 841.89 pts (A4)
+评测协议
+Pages:           1
+Page size:       595.276 x 841.89 pts (A4)
+All 8 original-data analysis CSVs reproduced in a separate directory and compared byte-for-byte.

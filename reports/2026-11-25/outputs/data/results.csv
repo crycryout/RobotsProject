@@ -1,0 +1,9 @@
+﻿dataset,model,success,episodes,success_pct,delta_vs_T_pp,delta_vs_base_pp,status,v2_training_seed,training_seeds_per_v2_arm,training_instructions,training_window,evaluation_tasks,evaluation_instruction,official_test_split_evaluated,initial_state_evidence
+training_rollout,Base,,,,,,not_applicable,20261123,1,default + specific,epochs 1-3,,,,
+training_rollout,T′,144,288,50.0,0.0,,verified,20261123,1,default + specific,epochs 1-3,,,,
+training_rollout,A-video,147,288,51.041667,1.041667,,verified,20261123,1,default + specific,epochs 1-3,,,,
+training_rollout,A-action,125,288,43.402778,-6.597222,,verified,20261123,1,default + specific,epochs 1-3,,,,
+untrained_task_eval,Base,51,120,42.5,0.0,0.0,verified,20261123,1,,,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+untrained_task_eval,T′,51,120,42.5,0.0,0.0,verified,20261123,1,,,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+untrained_task_eval,A-video,48,120,40.0,-2.5,-2.5,verified,20261123,1,,,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
+untrained_task_eval,A-action,51,120,42.5,0.0,0.0,verified,20261123,1,,,10 pre-screened train-pool tasks excluded from v2 updates,default,no,3 e03c1 arms: HDF5; Base: protocol keys only
